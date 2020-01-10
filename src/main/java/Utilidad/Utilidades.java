@@ -57,7 +57,7 @@ public class Utilidades {
 			
 			if (this.test_mode.equals("yes")) {
 				conn = DriverManager.getConnection("jdbc:" + this.dbms + "://" + this.serverName + ":" + this.portNumber
-						+ "/" + this.testDbName + "?serverTimezone=UTC", connectionProps);	
+						+ "/" + this.testDbName + "?serverTimezone=UTC", connectionProps);
 				
 			}else {
 				conn = DriverManager.getConnection("jdbc:" + this.dbms + "://" + this.serverName + ":" + this.portNumber

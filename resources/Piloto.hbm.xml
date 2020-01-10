@@ -3,13 +3,11 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="Modelo.Piloto" table="PILOTO">
-        <id name="idPiloto" type="int">
-            <column name="IDPILOTO" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="puntuacion" class="Modelo.Puntuacion" fetch="join">
-            <column name="PUNTUACION" />
-        </many-to-one>
-    </class>
+	<class name="Modelo.Piloto" table="Piloto">
+		<id name="idPiloto" type="int">
+			<column name="idPiloto" />
+			<generator class="identity" />
+		</id>
+		<one-to-one name="Puntuacion" constrained="true" cascade="all" />
+	</class>
 </hibernate-mapping>

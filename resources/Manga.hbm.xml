@@ -3,17 +3,14 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="Modelo.Manga" table="MANGA">
-        <id name="idManga" type="int">
-            <column name="IDMANGA" />
-            <generator class="assigned" />
-        </id>
-        <list name="grupos" inverse="false" table="GRUPO" lazy="true">
-            <key>
-                <column name="IDMANGA" />
-            </key>
-            <list-index></list-index>
-            <one-to-many class="Modelo.Grupo" />
-        </list>
-    </class>
+	<class name="Modelo.Manga" table="Manga">
+		<id name="idManga" type="int">
+			<column name="idManga" />
+			<generator class="identity" />
+		</id>
+		<bag name="grupos" table="Grupo" cascade="all">
+            <key column="idManga" not-null="true"></key>
+            <one-to-many class="Modelo.Grupo"/>
+        </bag>
+	</class>
 </hibernate-mapping>

@@ -6,8 +6,7 @@ public class Prueba {
 	private int idPrueba;
 	private Calendar fechaPrueba;
 	
-	public Prueba(int idPrueba, Calendar fechaPrueba) {
-		this.idPrueba = idPrueba;
+	public Prueba(Calendar fechaPrueba) {
 		this.fechaPrueba = fechaPrueba;
 	}
 

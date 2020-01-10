@@ -3,19 +3,22 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="Modelo.Puntuacion" table="PUNTUACION">
-        <id name="tiempoVuelo" type="int">
-            <column name="TIEMPOVUELO" />
-            <generator class="assigned" />
-        </id>
-        <property name="distancia" type="int">
-            <column name="DISTANCIA" />
-        </property>
-        <property name="altura" type="int">
-            <column name="ALTURA" />
-        </property>
-        <property name="total" type="int">
-            <column name="TOTAL" />
-        </property>
-    </class>
+	<class name="Modelo.Puntuacion" table="Puntuacion">
+		<id name="idPuntuacion" type="int">
+			<column name="idPuntuacion" />
+			<generator class="identity" />
+		</id>
+		<property name="tiempoVuelo" type="int">
+			<column name="tiempoVuelo" />
+		</property>
+		<property name="distancia" type="int">
+			<column name="distancia" />
+		</property>
+		<property name="altura" type="int">
+			<column name="altura" />
+		</property>
+		<property name="total" type="int">
+			<column name="total" />
+		</property>
+	</class>
 </hibernate-mapping>

@@ -8,8 +8,7 @@ public class Competicion {
 	private Calendar fechaInscripcion;
 	private List<Prueba> pruebas;
 	
-	public Competicion(int idCompeticion, Calendar fechaInscripcion, List<Prueba> pruebas) {
-		this.idCompeticion = idCompeticion;
+	public Competicion(Calendar fechaInscripcion, List<Prueba> pruebas) {
 		this.fechaInscripcion = fechaInscripcion;
 		this.pruebas = pruebas;
 	}

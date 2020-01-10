@@ -3,13 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="Modelo.Prueba" table="PRUEBA">
-        <id name="idPrueba" type="int">
-            <column name="IDPRUEBA" />
-            <generator class="assigned" />
-        </id>
-        <property name="fechaPrueba" type="java.util.Calendar">
-            <column name="FECHAPRUEBA" />
-        </property>
-    </class>
+	<class name="Modelo.Prueba" table="Prueba">
+		<id name="idPrueba" type="int">
+			<column name="idPrueba" />
+			<generator class="identity" />
+		</id>
+		<property name="fechaPrueba" type="java.util.Calendar">
+			<column name="fechaPrueba" />
+		</property>
+	</class>
 </hibernate-mapping>

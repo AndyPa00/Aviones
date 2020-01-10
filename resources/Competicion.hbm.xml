@@ -3,20 +3,17 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="Modelo.Competicion" table="COMPETICION">
+    <class name="Modelo.Competicion" table="Competicion">
         <id name="idCompeticion" type="int">
-            <column name="IDCOMPETICION" />
-            <generator class="assigned" />
+            <column name="idCompeticion" />
+            <generator class="identity" />
         </id>
         <property name="fechaInscripcion" type="java.util.Calendar">
-            <column name="FECHAINSCRIPCION" />
+            <column name="fechaInscripcion" />
         </property>
-        <list name="pruebas" inverse="false" table="PRUEBA" lazy="true">
-            <key>
-                <column name="IDCOMPETICION" />
-            </key>
-            <list-index></list-index>
-            <one-to-many class="Modelo.Prueba" />
-        </list>
+        <bag name="pruebas" table="Prueba" cascade="all">
+            <key column="idCompeticion" not-null="true"></key>
+            <one-to-many class="Modelo.Prueba"/>
+        </bag>
     </class>
 </hibernate-mapping>
