@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Modelo.Puntuacion" table="PUNTUACION">
+        <id name="tiempoVuelo" type="int">
+            <column name="TIEMPOVUELO" />
+            <generator class="assigned" />
+        </id>
+        <property name="distancia" type="int">
+            <column name="DISTANCIA" />
+        </property>
+        <property name="altura" type="int">
+            <column name="ALTURA" />
+        </property>
+        <property name="total" type="int">
+            <column name="TOTAL" />
+        </property>
+    </class>
+</hibernate-mapping>

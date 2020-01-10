@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Modelo.Competicion" table="COMPETICION">
+        <id name="idCompeticion" type="int">
+            <column name="IDCOMPETICION" />
+            <generator class="assigned" />
+        </id>
+        <property name="fechaInscripcion" type="java.util.Calendar">
+            <column name="FECHAINSCRIPCION" />
+        </property>
+        <list name="pruebas" inverse="false" table="PRUEBA" lazy="true">
+            <key>
+                <column name="IDCOMPETICION" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="Modelo.Prueba" />
+        </list>
+    </class>
+</hibernate-mapping>

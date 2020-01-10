@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 ene. 2020 8:49:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Modelo.Piloto" table="PILOTO">
+        <id name="idPiloto" type="int">
+            <column name="IDPILOTO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="puntuacion" class="Modelo.Puntuacion" fetch="join">
+            <column name="PUNTUACION" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
