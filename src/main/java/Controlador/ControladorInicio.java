@@ -3,7 +3,7 @@ package Controlador;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
 
-public class ControladorRaiz {
+public class ControladorInicio {
 	private InicioApp app;
 
 /*	@param Usuario	*/

@@ -8,19 +8,19 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 
-import Controlador.ControladorRaiz;
+import Controlador.ControladorInicio;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class InicioApp extends Application{
 	private Stage escena;
-	private BorderPane raiz;
+	private AnchorPane raiz;
 	private Session session1;
 	
 	public static void main(String[] args) {
@@ -36,17 +36,17 @@ public class InicioApp extends Application{
 	
 	public void iniciarRaiz() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/Inicio.fxml"));
 		
 		try {
-			raiz = (BorderPane) loader.load();
+			raiz = (AnchorPane) loader.load();
 		} catch (IOException e) {
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
 		escena.setScene(scene);
 		
-		ControladorRaiz controller = loader.getController();
+		ControladorInicio controller = loader.getController();
 		controller.setInicioApp(this);
 		escena.show();
 	}
