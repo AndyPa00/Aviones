@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -8,7 +9,16 @@ public class Competicion {
 	private Calendar fechaInscripcion;
 	private List<Prueba> pruebas;
 	
+	public Competicion() {
+	}
+
 	public Competicion(Calendar fechaInscripcion, List<Prueba> pruebas) {
+		this.fechaInscripcion = fechaInscripcion;
+		this.pruebas = pruebas;
+	}
+
+	public Competicion(int idCompeticion, Calendar fechaInscripcion, ArrayList<Prueba> pruebas) {
+		this.idCompeticion = idCompeticion;
 		this.fechaInscripcion = fechaInscripcion;
 		this.pruebas = pruebas;
 	}

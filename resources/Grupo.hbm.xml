@@ -12,5 +12,8 @@
             <key column="idGrupo" not-null="true"></key>
             <one-to-many class="Modelo.Piloto"/>
         </bag>
+<!--         <property name="idManga" type="int" insert="false" update="false"> -->
+<!--             <column name="idManga" /> -->
+<!--         </property> -->
 	</class>
 </hibernate-mapping>

@@ -4,11 +4,13 @@ import java.util.List;
 
 public class Grupo {
 	private int idGrupo;
-	List<Piloto> pilotos;
+	private List<Piloto> pilotos;
+	private int idManga;
 	
-	public Grupo(int idGrupo, List<Piloto> pilotos) {
+	public Grupo(int idGrupo, List<Piloto> pilotos, int idManga) {
 		this.idGrupo = idGrupo;
 		this.pilotos = pilotos;
+		this.idManga = idManga;
 	}
 	
 	public int getIdGrupo() {
@@ -22,5 +24,11 @@ public class Grupo {
 	}
 	public void setPilotos(List<Piloto> pilotos) {
 		this.pilotos = pilotos;
+	}
+	public int getIdManga() {
+		return idManga;
+	}
+	public void setIdManga(int idManga) {
+		this.idManga = idManga;
 	}
 }

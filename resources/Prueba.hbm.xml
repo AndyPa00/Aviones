@@ -11,5 +11,8 @@
 		<property name="fechaPrueba" type="java.util.Calendar">
 			<column name="fechaPrueba" />
 		</property>
+<!-- 		<property name="idCompeticion" type="int"> -->
+<!-- 			<column name="idCompeticion" /> -->
+<!-- 		</property> -->
 	</class>
 </hibernate-mapping>
