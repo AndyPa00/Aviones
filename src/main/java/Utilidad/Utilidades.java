@@ -25,7 +25,7 @@ public class Utilidades {
 	private int portNumber;
 	private Properties prop;
 
-	private static final String PROPERTIES_FILE = "Planea.xml";
+	private static final String PROPERTIES_FILE = "resources/Planea.xml";
 
 	public Utilidades() throws FileNotFoundException, IOException, InvalidPropertiesFormatException {
 		this.setProperties(PROPERTIES_FILE);

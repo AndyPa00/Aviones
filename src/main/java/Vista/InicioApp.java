@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class InicioApp extends Application{
-	private Stage escena;
+	private Stage escenario;
 	private AnchorPane raiz;
 	private Session session1;
 	
@@ -30,9 +30,9 @@ public class InicioApp extends Application{
 	}
 
 	@Override
-	public void start(Stage escenaPrimera) throws Exception {
-		this.escena = escenaPrimera;
-		this.escena.setTitle("Liga F5J");
+	public void start(Stage primerEscenario) throws Exception {
+		this.escenario = primerEscenario;
+		this.escenario.setTitle("Liga F5J");
 		iniciarInicio();
 	}
 	
@@ -46,17 +46,17 @@ public class InicioApp extends Application{
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
-		escena.setScene(scene);
-		scene.getStylesheets().add("estilo.css");
+//		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
+		escenario.setScene(scene);
 		
 		ControladorInicio controller = loader.getController();
 		controller.setInicioApp(this);
-		escena.show();
+		escenario.show();
 	}
 	
 	public void iniciarIniciarSesion() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion2.fxml"));
 		
 		try {
 			raiz = (AnchorPane) loader.load();
@@ -64,16 +64,16 @@ public class InicioApp extends Application{
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
-		escena.setScene(scene);
-		
+		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
+		escenario.setScene(scene);
 		ControladorIniciarSesion controller = loader.getController();
 		controller.setInicioApp(this);
-		escena.show();
+		escenario.show();
 	}
 	
 	public void iniciarRegistrarse() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse2.fxml"));
 		
 		try {
 			raiz = (AnchorPane) loader.load();
@@ -81,11 +81,12 @@ public class InicioApp extends Application{
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
-		escena.setScene(scene);
+		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
+		escenario.setScene(scene);
 		
 		ControladorRegistrarse controller = loader.getController();
 		controller.setInicioApp(this);
-		escena.show();
+		escenario.show();
 	}
 	
 	@FXML

@@ -50,6 +50,11 @@ public class ControladorRegistrarse {
 	private void volverAtras() {
 		app.iniciarInicio();
 	}
+	
+	@FXML
+	private void iniciarIniciarSesion() {
+		app.iniciarIniciarSesion();
+	}
 
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="477.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="477.0" style="-fx-background-image: url(&quot;../../../../resources/fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
    <children>
       <ImageView fitHeight="436.0" fitWidth="492.0" layoutX="-1.0" layoutY="-1.0">
          <image>
-            <Image url="@../../../fondoIS.jpeg" />
+            <Image url="@../../../resources/fondoIS.jpeg" />
          </image>
       </ImageView>
       <Text layoutX="168.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrarse">
