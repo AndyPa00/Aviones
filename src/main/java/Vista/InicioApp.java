@@ -31,12 +31,29 @@ public class InicioApp extends Application{
 	public void start(Stage escenaPrimera) throws Exception {
 		this.escena = escenaPrimera;
 		this.escena.setTitle("Liga F5J");
-		iniciarRaiz();
+		iniciarInicio();
 	}
 	
-	public void iniciarRaiz() {
+	public void iniciarInicio() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InicioApp.class.getResource("../Vista/Inicio.fxml"));
+		
+		try {
+			raiz = (AnchorPane) loader.load();
+		} catch (IOException e) {
+			System.out.println("Error  " + e.getMessage());
+		}
+		Scene scene = new Scene(raiz);
+		escena.setScene(scene);
+		
+		ControladorInicio controller = loader.getController();
+		controller.setInicioApp(this);
+		escena.show();
+	}
+	
+	public void iniciarRegistrarse() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse.fxml"));
 		
 		try {
 			raiz = (AnchorPane) loader.load();
@@ -62,9 +79,21 @@ public class InicioApp extends Application{
 		}
 	}
 	
-	public void iniciarSesion() {
-
-		Utilidades2.getSessionFactory().close();
+	public void iniciarIniciarSesion() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion.fxml"));
+		
+		try {
+			raiz = (AnchorPane) loader.load();
+		} catch (IOException e) {
+			System.out.println("Error  " + e.getMessage());
+		}
+		Scene scene = new Scene(raiz);
+		escena.setScene(scene);
+		
+//		ControladorInicio controller = loader.getController();
+//		controller.setInicioApp(this);
+		escena.show();
 	}
 	
 	public void recuperarUsuario() {
