@@ -10,6 +10,7 @@ import org.hibernate.Session;
 
 import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
+import Controlador.ControladorRegistrarse;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import javafx.application.Application;
@@ -81,8 +82,8 @@ public class InicioApp extends Application{
 		Scene scene = new Scene(raiz);
 		escena.setScene(scene);
 		
-//		ControladorRegistrarse controller = loader.getController();
-//		controller.setInicioApp(this);
+		ControladorRegistrarse controller = loader.getController();
+		controller.setInicioApp(this);
 		escena.show();
 	}
 	

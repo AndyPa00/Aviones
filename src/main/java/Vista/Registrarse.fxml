@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
    <children>
       <ImageView fitHeight="401.0" fitWidth="502.0" layoutX="-1.0" layoutY="-1.0">
          <image>
@@ -22,7 +22,7 @@
       </Text>
       <AnchorPane layoutX="67.0" layoutY="54.0" prefHeight="178.0" prefWidth="400.0" style="-fx-background-color: #b366ff;" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0">
          <children>
-            <TextField layoutX="194.0" layoutY="23.0" prefHeight="29.0" prefWidth="178.0">
+            <TextField fx:id="nombre" layoutX="194.0" layoutY="23.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -32,8 +32,8 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="270.0" layoutY="258.0" mnemonicParsing="false" text="Aceptar" />
-            <PasswordField layoutX="194.0" layoutY="211.0" prefHeight="29.0" prefWidth="178.0">
+            <Button layoutX="270.0" layoutY="258.0" mnemonicParsing="false" onAction="#registrarse" text="Aceptar" />
+            <PasswordField fx:id="contrasena" layoutX="194.0" layoutY="211.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -43,17 +43,17 @@
                   <Font name="Alfios Bold" size="24.0" />
                </font>
             </Text>
-            <TextField layoutX="194.0" layoutY="68.0" prefHeight="29.0" prefWidth="178.0">
+            <TextField fx:id="apellido1" layoutX="194.0" layoutY="68.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="194.0" layoutY="114.0" prefHeight="29.0" prefWidth="178.0">
+            <TextField fx:id="apellido2" layoutX="194.0" layoutY="114.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField layoutX="194.0" layoutY="160.0" prefHeight="29.0" prefWidth="178.0">
+            <TextField fx:id="usuario" layoutX="194.0" layoutY="160.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>

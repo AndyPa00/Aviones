@@ -13,7 +13,7 @@ public class ControladorInicio {
 	
 	@FXML
     private void registrarse() {
-		app.registrarse();
+		app.iniciarRegistrarse();
     }
 	
 	@FXML
