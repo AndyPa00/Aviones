@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 
+import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
@@ -51,6 +52,23 @@ public class InicioApp extends Application{
 		escena.show();
 	}
 	
+	public void iniciarIniciarSesion() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion.fxml"));
+		
+		try {
+			raiz = (AnchorPane) loader.load();
+		} catch (IOException e) {
+			System.out.println("Error  " + e.getMessage());
+		}
+		Scene scene = new Scene(raiz);
+		escena.setScene(scene);
+		
+		ControladorIniciarSesion controller = loader.getController();
+		controller.setInicioApp(this);
+		escena.show();
+	}
+	
 	public void iniciarRegistrarse() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse.fxml"));
@@ -63,8 +81,8 @@ public class InicioApp extends Application{
 		Scene scene = new Scene(raiz);
 		escena.setScene(scene);
 		
-		ControladorInicio controller = loader.getController();
-		controller.setInicioApp(this);
+//		ControladorRegistrarse controller = loader.getController();
+//		controller.setInicioApp(this);
 		escena.show();
 	}
 	
@@ -79,29 +97,16 @@ public class InicioApp extends Application{
 		}
 	}
 	
-	public void iniciarIniciarSesion() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion.fxml"));
-		
-		try {
-			raiz = (AnchorPane) loader.load();
-		} catch (IOException e) {
-			System.out.println("Error  " + e.getMessage());
-		}
-		Scene scene = new Scene(raiz);
-		escena.setScene(scene);
-		
-//		ControladorInicio controller = loader.getController();
-//		controller.setInicioApp(this);
-		escena.show();
-	}
-	
 	public void recuperarUsuario() {
 		
 	}
 
 	public void recuperarContrasena() {
 		
+	}
+
+	public void iniciarSesion() {
+		System.out.println("Se ha iniciado sesion");
 	}
 
 }
