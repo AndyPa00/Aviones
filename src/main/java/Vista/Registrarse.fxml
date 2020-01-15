@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="401.0" fitWidth="502.0" layoutX="-1.0" layoutY="-1.0">
+         <image>
+            <Image url="@../../../fondoIS.jpeg" />
+         </image>
+      </ImageView>
+      <Text layoutX="165.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniciar Sesión">
+         <font>
+            <Font name="Alfios" size="34.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="67.0" layoutY="54.0" prefHeight="178.0" prefWidth="400.0" style="-fx-background-color: #b366ff;" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <TextField layoutX="194.0" layoutY="23.0" prefHeight="29.0" prefWidth="178.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button layoutX="72.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Atrás" textOverrun="CLIP">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="270.0" layoutY="258.0" mnemonicParsing="false" text="Aceptar" />
+            <PasswordField layoutX="194.0" layoutY="211.0" prefHeight="29.0" prefWidth="178.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido 1">
+               <font>
+                  <Font name="Alfios Bold" size="24.0" />
+               </font>
+            </Text>
+            <TextField layoutX="194.0" layoutY="68.0" prefHeight="29.0" prefWidth="178.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="194.0" layoutY="114.0" prefHeight="29.0" prefWidth="178.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="194.0" layoutY="160.0" prefHeight="29.0" prefWidth="178.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido 2">
+               <font>
+                  <Font name="Alfios Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="49.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+               <font>
+                  <Font name="Alfios Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="50.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+               <font>
+                  <Font name="Alfios Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="35.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+               <font>
+                  <Font name="Alfios Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

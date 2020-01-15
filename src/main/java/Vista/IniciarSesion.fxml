@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="272.0" fitWidth="502.0" layoutX="-1.0" layoutY="-1.0">
          <image>
-            <Image url="@../../../../fondoIS.jpeg" />
+            <Image url="@../../../fondoIS.jpeg" />
          </image>
       </ImageView>
       <Text layoutX="165.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniciar Sesión">
