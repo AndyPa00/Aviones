@@ -47,6 +47,7 @@ public class InicioApp extends Application{
 		}
 		Scene scene = new Scene(raiz);
 		escena.setScene(scene);
+		scene.getStylesheets().add("estilo.css");
 		
 		ControladorInicio controller = loader.getController();
 		controller.setInicioApp(this);
