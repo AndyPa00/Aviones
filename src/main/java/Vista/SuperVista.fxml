@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="339.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorInicio">
+   <children>
+      <ImageView fitHeight="339.0" fitWidth="546.0">
+         <image>
+            <Image url="@../../../../ImagenSuperUser.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="1.0" arcWidth="1.0" height="84.0" smooth="false" stroke="BLACK" width="546.0">
+               <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="0.9807692307692307" startY="0.32211538461538464">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#6b2c2c" offset="1.0" />
+               </stops>
+            </LinearGradient>
+               </fill>
+      </Rectangle>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="56.0" layoutY="52.0" strokeLineCap="ROUND" strokeWidth="0.0" text="Administrador" textAlignment="CENTER" wrappingWidth="212.7294921875">
+         <font>
+            <Font name="Arial Bold Italic" size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </Text>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="312.0" layoutY="51.0" strokeLineCap="ROUND" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="212.7294921875">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="122.0" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #A02525;" text="Crear competición" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="329.0" layoutY="122.0" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #A02525;" text="Crear prueba" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="66.0" layoutY="231.0" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #00e6e6;" text="Usuarios" textFill="#0a0101">
+         <font>
+            <Font name="DejaVu Serif Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="329.0" layoutY="231.0" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #00e6e6;" text="Puntuación" textFill="#0a0101">
+         <font>
+            <Font name="DejaVu Serif Bold" size="19.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
