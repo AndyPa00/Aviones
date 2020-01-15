@@ -8,6 +8,9 @@ public class Credencial {
 	private String apellido1;
 	private String apellido2;
 	
+	public Credencial() {
+	}
+
 	public Credencial(String usuario, String contrasena, int numLicencia, String nombre, String apellido1, String apellido2) {
 		this.usuario = usuario;
 		this.contrasena = contrasena;
