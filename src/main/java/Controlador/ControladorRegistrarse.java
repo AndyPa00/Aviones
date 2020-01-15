@@ -22,6 +22,8 @@ public class ControladorRegistrarse {
 	private TextField usuario;
 	@FXML
 	private TextField contrasena;
+	@FXML
+	private TextField numLicencia;
 	
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
@@ -31,12 +33,21 @@ public class ControladorRegistrarse {
 	@FXML
 	private void registrarse() {
 		empezar();
-		Credencial cred = new Credencial(usuario.getText(), contrasena.getText(),
-				123, nombre.getText(), apellido1.getText(), apellido2.getText());
-		session.save(cred);
-		System.out.println(cred.toString());
-		terminar();
-		System.out.println("Usuario creado");
+		try {
+			Credencial cred = new Credencial(usuario.getText(), contrasena.getText(),
+					Integer.parseInt(numLicencia.getText()), nombre.getText(),
+					apellido1.getText(), apellido2.getText());
+			session.save(cred);
+			System.out.println(cred.toString());
+			terminar();
+			System.out.println("Usuario creado");
+			app.iniciarInicio();			
+		} catch (Exception e) {
+		}
+	}
+	
+	@FXML
+	private void volverAtras() {
 		app.iniciarInicio();
 	}
 

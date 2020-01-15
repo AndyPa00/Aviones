@@ -22,36 +22,59 @@
       </Text>
       <AnchorPane layoutX="67.0" layoutY="54.0" prefHeight="178.0" prefWidth="400.0" style="-fx-background-color: #8080ff;" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0">
          <children>
-            <Text layoutX="53.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
-               <font>
-                  <Font name="Abyssinica SIL" size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="35.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
-               <font>
-                  <Font name="Abyssinica SIL" size="24.0" />
-               </font>
-            </Text>
-            <TextField fx:id="usuario" layoutX="200.0" layoutY="29.0" prefHeight="29.0" prefWidth="178.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <Button layoutX="72.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Atrás" textOverrun="CLIP">
+            <Button layoutX="90.0" layoutY="128.0" mnemonicParsing="false" onAction="#volverAtras" prefHeight="26.0" prefWidth="72.0" text="Atrás" textOverrun="CLIP">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="268.0" layoutY="139.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Aceptar" />
-            <PasswordField fx:id="contrasena" layoutX="200.0" layoutY="86.0" prefHeight="29.0" prefWidth="178.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </PasswordField>
+            <Button layoutX="226.0" layoutY="129.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Aceptar" />
+            <GridPane layoutX="35.0" layoutY="29.0" prefHeight="84.0" prefWidth="332.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+                     <font>
+                        <Font name="Abyssinica SIL" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Abyssinica SIL" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="usuario" prefHeight="29.0" prefWidth="178.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="contrasena" onAction="#iniciarSesion" prefHeight="29.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </GridPane>
          </children>
          <effect>
             <InnerShadow />
          </effect>
       </AnchorPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>

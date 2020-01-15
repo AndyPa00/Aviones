@@ -49,6 +49,11 @@ public class ControladorIniciarSesion {
 		}
 		
 	}
+	
+	@FXML
+	private void volverAtras() {
+		app.iniciarInicio();
+	}
 
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();
