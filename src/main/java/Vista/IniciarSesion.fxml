@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="500.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="500.0" style="-fx-background-image: url(&quot;../../../../fondoIs.jpg&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorIniciarSesion">
    <children>
       <ImageView fitHeight="272.0" fitWidth="502.0" layoutX="-1.0" layoutY="-1.0">
          <image>
@@ -33,7 +32,7 @@
                   <Font name="Abyssinica SIL" size="24.0" />
                </font>
             </Text>
-            <TextField layoutX="200.0" layoutY="29.0" prefHeight="29.0" prefWidth="178.0">
+            <TextField fx:id="usuario" layoutX="200.0" layoutY="29.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -43,8 +42,8 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="268.0" layoutY="139.0" mnemonicParsing="false" text="Aceptar" />
-            <PasswordField layoutX="200.0" layoutY="86.0" prefHeight="29.0" prefWidth="178.0">
+            <Button layoutX="268.0" layoutY="139.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Aceptar" />
+            <PasswordField fx:id="contrasena" layoutX="200.0" layoutY="86.0" prefHeight="29.0" prefWidth="178.0">
                <font>
                   <Font size="15.0" />
                </font>
