@@ -33,7 +33,7 @@
                   <PasswordField fx:id="contrasena" onAction="#registrarse" prefHeight="29.0" prefWidth="178.0" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="apellido2" prefHeight="30.0" prefWidth="178.0" promptText="Segundo apellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="usuario" prefHeight="30.0" prefWidth="178.0" promptText="Usuario" GridPane.rowIndex="2" />
-                  <TextField fx:id="numLicencia" prefHeight="29.0" prefWidth="143.0" promptText="Número de licencia" GridPane.columnIndex="1" />
+                  <TextField fx:id="numLicencia" prefHeight="29.0" prefWidth="143.0" promptText="Nº de licencia" GridPane.columnIndex="1" />
                   <TextField fx:id="apellido1" prefHeight="28.0" prefWidth="178.0" promptText="Primer apellido" GridPane.rowIndex="1" />
                </children>
             </GridPane>
