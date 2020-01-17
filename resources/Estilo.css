@@ -13,6 +13,7 @@
 	-fx-background-insets: 0, 0 0 1 0;
 	-fx-background-radius: 0;
 	-fx-text-fill: #D3D8DC;
+	-fx-border-radius: 15;
 }
 
 .text-field:focused {

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
+   <children>
+      <ImageView fitHeight="532.0" fitWidth="628.0" layoutX="-69.0">
+         <image>
+            <Image url="@../../../resources/fondoIS.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="70.0" layoutY="84.0" prefHeight="327.0" prefWidth="350.0">
+         <children>
+            <GridPane hgap="20.0" layoutX="20.0" layoutY="115.0" prefHeight="138.0" prefWidth="310.0" AnchorPane.topAnchor="115.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="153.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="9.0" prefWidth="157.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="nombre" prefHeight="29.0" prefWidth="178.0" promptText="Nombre" />
+                  <PasswordField fx:id="contrasena" onAction="#registrarse" prefHeight="29.0" prefWidth="178.0" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="apellido2" prefHeight="30.0" prefWidth="178.0" promptText="Segundo apellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="usuario" prefHeight="30.0" prefWidth="178.0" promptText="Usuario" GridPane.rowIndex="2" />
+                  <TextField fx:id="numLicencia" prefHeight="29.0" prefWidth="143.0" promptText="Número de licencia" GridPane.columnIndex="1" />
+                  <TextField fx:id="apellido1" prefHeight="28.0" prefWidth="178.0" promptText="Primer apellido" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <HBox spacing="50.0" AnchorPane.bottomAnchor="14.0" />
+            <Hyperlink layoutX="103.0" layoutY="253.0" onAction="#iniciarIniciarSesion" text="Ya tengo una cuenta" />
+            <ImageView fitHeight="86.0" fitWidth="88.0" layoutX="131.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../../resources/iconoPiloto.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="88.0" layoutY="288.0" spacing="30.0">
+               <children>
+                  <Button layoutX="69.0" layoutY="291.0" mnemonicParsing="false" onAction="#volverAtras" text="Cancelar" />
+                  <Button layoutX="214.0" layoutY="288.0" mnemonicParsing="false" onAction="#registrarse" text="Aceptar" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -32,7 +32,7 @@
             </MenuButton>
       <ImageView fitHeight="355.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../grupo.jpg" />
+            <Image url="@../../../resources/grupo.jpg" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="67.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a La liga F5J" textAlignment="CENTER" wrappingWidth="146.7294921875">
