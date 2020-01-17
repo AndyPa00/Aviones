@@ -56,7 +56,7 @@ public class InicioApp extends Application{
 	
 	public void iniciarIniciarSesion() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion2.fxml"));
 		
 		try {
 			raiz = (AnchorPane) loader.load();
@@ -64,7 +64,7 @@ public class InicioApp extends Application{
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
-//		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
 		escenario.setScene(scene);
 		ControladorIniciarSesion controller = loader.getController();
 		controller.setInicioApp(this);
