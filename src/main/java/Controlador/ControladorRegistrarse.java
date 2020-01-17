@@ -7,6 +7,7 @@ import Utilidad.Utilidades2;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class ControladorRegistrarse {
 	
@@ -24,9 +25,12 @@ public class ControladorRegistrarse {
 	private TextField contrasena;
 	@FXML
 	private TextField numLicencia;
+	@FXML
+	private AnchorPane marco;
 	
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
+		marco.getStyleClass().add("marco");
 		this.app = app;
 	}
 	

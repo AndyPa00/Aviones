@@ -1,7 +1,12 @@
 .root {
-	-fx-background-color: #262f37;
+	-fx-background-image: url("fondoIS.jpg");
 	-fx-font-size: 11pt;
 	-fx-font-family: "Segoe UI Semibold";
+}
+
+.marco {
+	-fx-background-color: rgba(128,128,128, 0.95);
+	-fx-background-radius: 30;
 }
 
 .label {
@@ -11,9 +16,8 @@
 .text-field {
 	-fx-background-color: -fx-text-box-border, #262f37;
 	-fx-background-insets: 0, 0 0 1 0;
-	-fx-background-radius: 0;
 	-fx-text-fill: #D3D8DC;
-	-fx-border-radius: 15;
+	-fx-background-radius: 30;
 }
 
 .text-field:focused {

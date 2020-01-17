@@ -16,7 +16,7 @@
             <Image url="@../../../resources/fondoIS.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="70.0" layoutY="84.0" prefHeight="327.0" prefWidth="350.0">
+      <AnchorPane fx:id="marco" layoutX="70.0" layoutY="84.0" prefHeight="327.0" prefWidth="350.0">
          <children>
             <GridPane hgap="20.0" layoutX="20.0" layoutY="115.0" prefHeight="138.0" prefWidth="310.0" AnchorPane.topAnchor="115.0">
               <columnConstraints>
@@ -41,7 +41,7 @@
             <Hyperlink layoutX="103.0" layoutY="253.0" onAction="#iniciarIniciarSesion" text="Ya tengo una cuenta" />
             <ImageView fitHeight="86.0" fitWidth="88.0" layoutX="131.0" layoutY="14.0">
                <image>
-                  <Image url="@../../../resources/iconoPiloto.png" />
+                  <Image url="@../../../resources/iconoPiloto2.png" />
                </image>
             </ImageView>
             <HBox layoutX="88.0" layoutY="288.0" spacing="30.0">
