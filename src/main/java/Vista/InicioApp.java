@@ -18,11 +18,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class InicioApp extends Application{
 	private Stage escenario;
 	private AnchorPane raiz;
+	private BorderPane raiz2;
 	private Session session1;
 	
 	public static void main(String[] args) {
@@ -88,6 +91,57 @@ public class InicioApp extends Application{
 		controller.setInicioApp(this);
 		escenario.show();
 	}
+	
+	public void iniciarRegistrarseBorder() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse4.fxml"));
+		
+		try {
+			raiz2 = (BorderPane) loader.load();
+		} catch (IOException e) {
+			System.out.println("Error  " + e.getMessage());
+		}
+		Scene scene = new Scene(raiz2);
+		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
+		escenario.setScene(scene);
+		escenario.initStyle(StageStyle.TRANSPARENT);
+		
+		ControladorRegistrarse controller = loader.getController();
+		controller.setInicioApp(this);
+		escenario.show();
+	}
+	
+	public void iniciarRaiz() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
+		
+		try {
+			raiz2 = (BorderPane) loader.load();
+		} catch (IOException e) {
+			System.out.println("Error  " + e.getMessage());
+		}
+		Scene scene = new Scene(raiz2);
+		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
+		escenario.setScene(scene);
+		
+		ControladorRegistrarse controller = loader.getController();
+		controller.setInicioApp(this);
+		escenario.show();
+	}
+	
+	public void mostrarRegistrarse() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("Vista/Registrarse5.fxml"));
+            AnchorPane registrarse = (AnchorPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            raiz2.setCenter(registrarse);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 	
 	@FXML
 	public void registrarse() {

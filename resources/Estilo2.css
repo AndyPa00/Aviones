@@ -1,0 +1,40 @@
+.root {
+	-fx-background-color: #485386;
+	-fx-font-family: "Segoe UI Semibold";
+}
+
+.hbox {
+	-fx-background-color: #dfe4ea;
+	-fx-font-size: 15pt;
+}
+
+.icon {
+	-fx-cursor: hand;
+}
+
+.icon:hover {
+	-fx-background-color: #dfe4ea;
+}
+
+.text-field {
+	-fx-background-color: -fx-text-box-border, #262f37;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-text-fill: #D3D8DC;
+	-fx-background-radius: 2.5;
+}
+
+.text-field:focused {
+	-fx-background-color: -fx-focus-color, #262f37;
+	-fx-focus-color: #42A6F9;
+	-fx-text-fill: #D3D8DC;
+}
+
+.marco {
+	-fx-background-color: rgba(46, 54, 86, 0.5);
+}
+
+.titulo {
+	-fx-background-color: rgba(46, 54, 86, 1);
+	-fx-text-fill: #D3D8DC;
+	-fx-font-size: 15pt;
+}

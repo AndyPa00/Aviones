@@ -6,8 +6,11 @@ import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class ControladorRegistrarse {
 	
@@ -27,10 +30,11 @@ public class ControladorRegistrarse {
 	private TextField numLicencia;
 	@FXML
 	private AnchorPane marco;
+	double x,y;
 	
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
-		marco.getStyleClass().add("marco");
+//		marco.getStyleClass().add("marco");
 		this.app = app;
 	}
 	
@@ -59,6 +63,43 @@ public class ControladorRegistrarse {
 	private void iniciarIniciarSesion() {
 		app.iniciarIniciarSesion();
 	}
+	
+	@FXML
+	void presionado(MouseEvent event) {
+		x = event.getSceneX();
+		y = event.getSceneY();
+	}
+	
+	@FXML
+    void arrastrado(MouseEvent event) {
+		Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
+		escenario.setX(event.getScreenX() - x);
+		escenario.setY(event.getScreenY() - y);
+    }
+	
+	@FXML
+    void minimizar(MouseEvent event) {
+		Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
+		escenario.setIconified(true);
+    }
+	
+    @FXML
+    void maximizar(MouseEvent event) {
+    	Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
+		if(escenario.getFullScreenExitHint()==null) {
+			escenario.setFullScreenExitHint("");
+			escenario.setFullScreen(true);
+		} else {
+			escenario.setFullScreen(false);
+			escenario.setFullScreenExitHint(null);
+		}
+    }
+
+    @FXML
+    void cerrar(MouseEvent event) {
+    	Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
+		escenario.close();
+    }
 
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();
