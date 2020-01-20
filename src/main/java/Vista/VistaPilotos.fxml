@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVentanaPiloto">
+   <children>
+      <AnchorPane prefHeight="430.0" prefWidth="195.0" style="-fx-background-color: #33c7cc;">
+         <children>
+            <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="44.0" style="-fx-font-size: 35; -fx-font-family: Century;" text="Piloto" />
+            <Text fontSmoothingType="LCD" layoutX="113.0" layoutY="43.0" style="-fx-font-size: 30; -fx-font-family: Century;" text="1563" wrappingWidth="72.99999237060547" />
+            <Line endX="70.89999389648438" endY="7.0" layoutX="108.0" layoutY="52.0" startX="-95.0999984741211" startY="7.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+            <Text fontSmoothingType="LCD" layoutX="5.0" layoutY="99.0" style="-fx-font-size: 33; -fx-font-family: Century;" text="Vegetita777" wrappingWidth="184.99998474121094" />
+            <BottomNavigationButton layoutY="130.0" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #40bbbf; -fx-font-size: 30; -fx-font-family: Aparajita;" text="Clasificación" />
+            <BottomNavigationButton layoutY="190.0" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #4dafb3; -fx-font-size: 30; -fx-font-family: Aparajita;" text="Avión" />
+            <BottomNavigationButton layoutY="250.0" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #59a3a6; -fx-font-size: 30; -fx-font-family: Aparajita;" text="Perfil" />
+            <BottomNavigationButton layoutY="310.0" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #609d9f; -fx-font-size: 30; -fx-font-family: Aparajita;" text="Información" />
+            <BottomNavigationButton layoutY="370.0" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #669799; -fx-font-size: 30; -fx-font-family: Aparajita;" text="Salir" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="195.0" prefHeight="430.0" prefWidth="505.0" />
+      <AnchorPane layoutX="195.0" prefHeight="430.0" prefWidth="505.0" />
+      <AnchorPane layoutX="195.0" prefHeight="430.0" prefWidth="505.0" />
+      <AnchorPane layoutX="195.0" prefHeight="430.0" prefWidth="505.0">
+         <children>
+            <TableView layoutX="3.0" layoutY="41.0" prefHeight="389.0" prefWidth="500.0">
+              <columns>
+                <TableColumn prefWidth="100.0" text="Usuario" />
+                <TableColumn prefWidth="100.0" text="Puntos" />
+                  <TableColumn prefWidth="100.0" text="Nombre" />
+                  <TableColumn prefWidth="100.0" text="Participante" />
+                  <TableColumn prefWidth="100.0" text="Posición" />
+              </columns>
+            </TableView>
+            <TextField layoutX="14.0" layoutY="10.0" prefHeight="26.0" prefWidth="281.0" promptText="Buscar..." />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
