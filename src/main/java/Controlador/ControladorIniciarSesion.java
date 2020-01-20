@@ -52,7 +52,7 @@ public class ControladorIniciarSesion {
 	
 	@FXML
 	private void volverAtras() {
-		app.iniciarInicio();
+		app.mostrarInicio();
 	}
 
 	public void empezar() {

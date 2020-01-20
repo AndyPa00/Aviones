@@ -1,19 +1,42 @@
 .root {
-	-fx-background-color: #485386;
+	-fx-background-image: url("fondoIS3.jpg");
 	-fx-font-family: "Segoe UI Semibold";
 }
 
+.inicio {
+	-fx-background-image: url("grupo2.jpg");
+}
+
+.button {
+	-fx-background-color: #42A6F9;
+	-fx-background-radius: 30;
+	-fx-text-fill: #D3D8DC;
+}
+
+.button:hover {
+	-fx-background-color: #79C0FA;
+}
+
+.button:pressed {
+	-fx-background-color: #2B6FA8;
+}
+
 .hbox {
-	-fx-background-color: #dfe4ea;
-	-fx-font-size: 15pt;
+	-fx-background-color: #42A6F9;
+	-fx-font-size: 11pt;
 }
 
-.icon {
-	-fx-cursor: hand;
+.icono {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0;
 }
 
-.icon:hover {
-	-fx-background-color: #dfe4ea;
+.cierre:hover {
+	-fx-background-color: #E32D2D;
+}
+
+.cierre:pressed {
+	-fx-background-color: #852B2B;
 }
 
 .text-field {

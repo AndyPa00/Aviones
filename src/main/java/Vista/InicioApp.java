@@ -24,8 +24,8 @@ import javafx.stage.StageStyle;
 
 public class InicioApp extends Application{
 	private Stage escenario;
-	private AnchorPane raiz;
-	private BorderPane raiz2;
+	private AnchorPane raizAnchor;
+	private BorderPane raizBorder;
 	private Session session1;
 	
 	public static void main(String[] args) {
@@ -36,72 +36,20 @@ public class InicioApp extends Application{
 	public void start(Stage primerEscenario) throws Exception {
 		this.escenario = primerEscenario;
 		this.escenario.setTitle("Liga F5J");
-		iniciarInicio();
+		iniciarRaiz();
+		mostrarInicio();
 	}
 	
-	public void iniciarInicio() {
+	public void iniciarRaiz() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Inicio.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
 		
 		try {
-			raiz = (AnchorPane) loader.load();
+			raizBorder = (BorderPane) loader.load();
 		} catch (IOException e) {
 			System.out.println("Error  " + e.getMessage());
 		}
-		Scene scene = new Scene(raiz);
-//		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
-		escenario.setScene(scene);
-		
-		ControladorInicio controller = loader.getController();
-		controller.setInicioApp(this);
-		escenario.show();
-	}
-	
-	public void iniciarIniciarSesion() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/IniciarSesion2.fxml"));
-		
-		try {
-			raiz = (AnchorPane) loader.load();
-		} catch (IOException e) {
-			System.out.println("Error  " + e.getMessage());
-		}
-		Scene scene = new Scene(raiz);
-		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
-		escenario.setScene(scene);
-		ControladorIniciarSesion controller = loader.getController();
-		controller.setInicioApp(this);
-		escenario.show();
-	}
-	
-	public void iniciarRegistrarse() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse3.fxml"));
-		
-		try {
-			raiz = (AnchorPane) loader.load();
-		} catch (IOException e) {
-			System.out.println("Error  " + e.getMessage());
-		}
-		Scene scene = new Scene(raiz);
-		scene.getStylesheets().add(getClass().getResource("/Estilo.css").toExternalForm());
-		escenario.setScene(scene);
-		
-		ControladorRegistrarse controller = loader.getController();
-		controller.setInicioApp(this);
-		escenario.show();
-	}
-	
-	public void iniciarRegistrarseBorder() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Registrarse4.fxml"));
-		
-		try {
-			raiz2 = (BorderPane) loader.load();
-		} catch (IOException e) {
-			System.out.println("Error  " + e.getMessage());
-		}
-		Scene scene = new Scene(raiz2);
+		Scene scene = new Scene(raizBorder);
 		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
 		escenario.setScene(scene);
 		escenario.initStyle(StageStyle.TRANSPARENT);
@@ -111,33 +59,47 @@ public class InicioApp extends Application{
 		escenario.show();
 	}
 	
-	public void iniciarRaiz() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
-		
-		try {
-			raiz2 = (BorderPane) loader.load();
-		} catch (IOException e) {
-			System.out.println("Error  " + e.getMessage());
-		}
-		Scene scene = new Scene(raiz2);
-		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
-		escenario.setScene(scene);
-		
-		ControladorRegistrarse controller = loader.getController();
-		controller.setInicioApp(this);
-		escenario.show();
-	}
-	
 	public void mostrarRegistrarse() {
         try {
             // Load person overview.
+        	System.out.println(1);
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("Vista/Registrarse5.fxml"));
+        	System.out.println(2);
+            loader.setLocation(InicioApp.class.getResource("/Vista/Registrarse.fxml"));
+        	System.out.println(3);
             AnchorPane registrarse = (AnchorPane) loader.load();
+        	System.out.println(4);
             
             // Set person overview into the center of root layout.
-            raiz2.setCenter(registrarse);
+            raizBorder.setCenter(registrarse);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	
+	public void mostrarIniciarSesion() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/IniciarSesion.fxml"));
+            AnchorPane iniciarSesion = (AnchorPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            raizBorder.setCenter(iniciarSesion);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	
+	public void mostrarInicio() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/Inicio2.fxml"));
+            AnchorPane inicio = (AnchorPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            raizBorder.setCenter(inicio);
         } catch (IOException e) {
             e.printStackTrace();
         }

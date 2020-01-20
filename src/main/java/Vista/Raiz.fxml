@@ -7,25 +7,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
    <top>
-      <HBox alignment="CENTER_RIGHT" onMouseDragged="#arrastrado" onMousePressed="#presionado" styleClass="hbox" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" onMouseDragged="#arrastrado" onMousePressed="#presionado" prefHeight="35.0" prefWidth="600.0" styleClass="hbox" BorderPane.alignment="CENTER">
          <children>
-            <Label onMouseClicked="#minimizar" styleClass="icon" text="─" textFill="#48dbfb">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <Label onMouseClicked="#maximizar" styleClass="icon" text="☐" textFill="#1dd1a1">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="15.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <Label onMouseClicked="#cerrar" styleClass="icon" text="✕" textFill="#ee5253">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
-               </HBox.margin>
-            </Label>
+            <Button mnemonicParsing="false" onAction="#minimizar" prefHeight="35.0" prefWidth="35.0" text="─">
+               <styleClass>
+                  <String fx:value="icono" />
+                  <String fx:value="min" />
+               </styleClass></Button>
+            <Button disable="true" mnemonicParsing="false" onAction="#maximizar" prefHeight="35.0" prefWidth="35.0" styleClass="icono" text="☐" />
+            <Button mnemonicParsing="false" onAction="#cerrar" prefHeight="35.0" prefWidth="35.0" text="✕">
+               <styleClass>
+                  <String fx:value="icono" />
+                  <String fx:value="cierre" />
+               </styleClass></Button>
          </children>
       </HBox>
    </top>

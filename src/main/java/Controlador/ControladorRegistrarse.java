@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -34,7 +35,6 @@ public class ControladorRegistrarse {
 	
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
-//		marco.getStyleClass().add("marco");
 		this.app = app;
 	}
 	
@@ -49,19 +49,19 @@ public class ControladorRegistrarse {
 			System.out.println(cred.toString());
 			terminar();
 			System.out.println("Usuario creado");
-			app.iniciarInicio();			
+			app.mostrarInicio();
 		} catch (Exception e) {
 		}
 	}
 	
 	@FXML
 	private void volverAtras() {
-		app.iniciarInicio();
+		app.mostrarInicio();
 	}
 	
 	@FXML
 	private void iniciarIniciarSesion() {
-		app.iniciarIniciarSesion();
+		app.mostrarIniciarSesion();
 	}
 	
 	@FXML
@@ -78,13 +78,13 @@ public class ControladorRegistrarse {
     }
 	
 	@FXML
-    void minimizar(MouseEvent event) {
+    void minimizar(ActionEvent event) {
 		Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
 		escenario.setIconified(true);
     }
 	
     @FXML
-    void maximizar(MouseEvent event) {
+    void maximizar(ActionEvent event) {
     	Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
 		if(escenario.getFullScreenExitHint()==null) {
 			escenario.setFullScreenExitHint("");
@@ -96,7 +96,7 @@ public class ControladorRegistrarse {
     }
 
     @FXML
-    void cerrar(MouseEvent event) {
+    void cerrar(ActionEvent event) {
     	Stage escenario = (Stage)((Node)event.getSource()).getScene().getWindow();
 		escenario.close();
     }

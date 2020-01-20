@@ -13,12 +13,12 @@ public class ControladorInicio {
 	
 	@FXML
     private void registrarse() {
-		app.iniciarRegistrarse();
+		app.mostrarRegistrarse();
     }
 	
 	@FXML
     private void iniciarSesion() {
-        app.iniciarIniciarSesion();
+        app.mostrarIniciarSesion();
     }
 	
 	@FXML
