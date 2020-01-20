@@ -62,16 +62,15 @@ public class InicioApp extends Application{
 	public void mostrarRegistrarse() {
         try {
             // Load person overview.
-        	System.out.println(1);
             FXMLLoader loader = new FXMLLoader();
-        	System.out.println(2);
             loader.setLocation(InicioApp.class.getResource("/Vista/Registrarse.fxml"));
-        	System.out.println(3);
             AnchorPane registrarse = (AnchorPane) loader.load();
-        	System.out.println(4);
             
             // Set person overview into the center of root layout.
             raizBorder.setCenter(registrarse);
+            
+            ControladorRegistrarse controller = loader.getController();
+    		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,6 +85,9 @@ public class InicioApp extends Application{
             
             // Set person overview into the center of root layout.
             raizBorder.setCenter(iniciarSesion);
+            
+            ControladorIniciarSesion controller = loader.getController();
+    		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,6 +102,9 @@ public class InicioApp extends Application{
             
             // Set person overview into the center of root layout.
             raizBorder.setCenter(inicio);
+            
+            ControladorInicio controller = loader.getController();
+    		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -125,7 +130,20 @@ public class InicioApp extends Application{
 	}
 
 	public void iniciarSesion() {
-		System.out.println("Se ha iniciado sesion");
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos.fxml"));
+            AnchorPane inicio = (AnchorPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            raizBorder.setCenter(inicio);
+            
+//            ControladorPilotos controller = loader.getController();
+//    		controller.setInicioApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 }
