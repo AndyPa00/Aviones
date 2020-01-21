@@ -8,6 +8,10 @@ public class Piloto {
 		this.idPiloto = idPiloto;
 		this.puntuacion = puntuacion;
 	}
+	
+	public Piloto(Puntuacion puntuacion) {
+		this.puntuacion = puntuacion;
+	}
 
 	public int getIdPiloto() {
 		return idPiloto;

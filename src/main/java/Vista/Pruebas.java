@@ -9,7 +9,9 @@ import org.hibernate.query.Query;
 import Modelo.Competicion;
 import Modelo.Credencial;
 import Modelo.Manga;
+import Modelo.Piloto;
 import Modelo.Prueba;
+import Modelo.Puntuacion;
 import Utilidad.Utilidades2;
 
 public class Pruebas {
@@ -23,8 +25,8 @@ public class Pruebas {
 		Pruebas p = new Pruebas();
 
 		p.agregarPrueba(2020, 1, 14, 1);
-//		p.crearCompeticion(2020, 1, 1);
-
+//		p.crearCompeticion(2020, 10, 5);
+		
 	}
 
 	public void crearCompeticion(int ano, int mes, int dia) { // Funciona
@@ -47,8 +49,7 @@ public class Pruebas {
 //		terminar();
 //	}
 
-	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {// Que no se nos olvide qeu en agiosto no
-																				// se puede
+	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {// Que no se nos olvide qeu en agiosto no se puede
 		empezar();
 		// Crear fecha para la prueba
 		Calendar calenPrueba = Calendar.getInstance();
@@ -79,6 +80,11 @@ public class Pruebas {
 		empezar();
 		session.update(com);
 		terminar();
+	}
+	
+	private void crearPiloto() {
+		Piloto pilo = new Piloto(new Puntuacion(1, 5, 5, 5, 5));
+
 	}
 
 	public void crearUsuario() { // Funciona
