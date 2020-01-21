@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="465.0" prefWidth="600.0" styleClass="fondo" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
+<AnchorPane prefHeight="465.0" prefWidth="600.0" styleClass="fondo" stylesheets="@../../../resource/Estilo2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
    <children>
       <BorderPane layoutX="120.0" layoutY="38.0" maxHeight="390.0" maxWidth="360.0" prefHeight="390.0" prefWidth="360.0" styleClass="marco">
          <top>
@@ -33,11 +41,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="86.0" fitWidth="88.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@../../../resources/iconoPilotoRg.png" />
-                     </image>
-                  </ImageView>
                   <GridPane hgap="20.0" maxHeight="140.0" maxWidth="300.0" prefHeight="140.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="145.0" />
@@ -64,6 +67,11 @@
                         <Button layoutX="214.0" layoutY="288.0" mnemonicParsing="false" onAction="#registrarse" text="Aceptar" />
                      </children>
                   </HBox>
+                  <ImageView fitHeight="88.0" fitWidth="86.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <image>
+                        <Image url="@../../../resource/iconoPilotoRg.png" />
+                     </image>
+                  </ImageView>
                </children>
             </GridPane>
          </center>

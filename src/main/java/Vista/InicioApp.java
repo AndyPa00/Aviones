@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Controlador.ControladorRegistrarse;
+import Controlador.ControladorVentanaPiloto;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import javafx.application.Application;
@@ -50,7 +51,7 @@ public class InicioApp extends Application{
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raizBorder);
-		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
+//		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
 		escenario.setScene(scene);
 		escenario.initStyle(StageStyle.TRANSPARENT);
 		
@@ -139,8 +140,8 @@ public class InicioApp extends Application{
             // Set person overview into the center of root layout.
             raizBorder.setCenter(inicio);
             
-//            ControladorPilotos controller = loader.getController();
-//    		controller.setInicioApp(this);
+            ControladorVentanaPiloto controller = loader.getController();
+    		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
