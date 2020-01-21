@@ -25,7 +25,6 @@ import javafx.stage.StageStyle;
 
 public class InicioApp extends Application{
 	private Stage escenario;
-	private AnchorPane raizAnchor;
 	private BorderPane raizBorder;
 	private Session session1;
 	
@@ -105,6 +104,7 @@ public class InicioApp extends Application{
             raizBorder.setCenter(inicio);
             
             ControladorInicio controller = loader.getController();
+            
     		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -130,7 +130,7 @@ public class InicioApp extends Application{
 		
 	}
 
-	public void iniciarSesion() {
+	public void iniciarSesion(String usuario, int numLicencia) {
 		try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -141,6 +141,7 @@ public class InicioApp extends Application{
             raizBorder.setCenter(inicio);
             
             ControladorVentanaPiloto controller = loader.getController();
+            controller.recibeParametros(usuario, numLicencia);
     		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();

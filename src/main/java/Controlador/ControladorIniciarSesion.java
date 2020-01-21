@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import Modelo.Credencial;
-import Modelo.Prueba;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
@@ -40,12 +39,15 @@ public class ControladorIniciarSesion {
 		if (credencial.isEmpty()) {
 			System.out.println("Usuario no encontrado");
 		} else {
-			if(credencial.get(0).getContrasena().equals(contrasena.getText())) {
+			for (int i = 0; i < credencial.size(); i++) {
+				if(credencial.get(i).getContrasena().equals(contrasena.getText())) {
 				System.out.println("Usuario y contra correctas");
-				app.iniciarSesion();
+				app.iniciarSesion(usuario.getText(), credencial.get(i).getNumLicencia());
 			} else {
 				System.out.println("Contrasena incorrecta");
 			}
+			}
+			
 		}
 		
 	}
