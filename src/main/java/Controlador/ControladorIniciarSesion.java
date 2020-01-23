@@ -42,7 +42,7 @@ public class ControladorIniciarSesion {
 			for (int i = 0; i < credencial.size(); i++) {
 				if(credencial.get(i).getContrasena().equals(contrasena.getText())) {
 				System.out.println("Usuario y contra correctas");
-				app.iniciarSesion(usuario.getText(), credencial.get(i).getNumLicencia());
+				app.iniciarSesion(credencial.get(0));
 			} else {
 				System.out.println("Contrasena incorrecta");
 			}

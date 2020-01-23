@@ -60,10 +60,10 @@ public class ControladorVentanaPiloto {
 	//	PilotosConPuntos pilotos = new PilotosConPuntos(usuario, numLicencia, nombre, puntos);
 	}
 	
-	@FXML
-	private void volverAtras() {
-		app.iniciarSesion(String.valueOf(usuario), Integer.parseInt(String.valueOf(numLicencia)));
-	}
+//	@FXML
+//	private void volverAtras() {
+//		app.iniciarSesion(String.valueOf(usuario), Integer.parseInt(String.valueOf(numLicencia)));
+//	}
 
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();

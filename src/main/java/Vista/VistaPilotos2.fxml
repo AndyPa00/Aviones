@@ -5,23 +5,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVistaPilotos">
+<BorderPane prefHeight="465.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVistaPilotos">
    <left>
-      <GridPane prefWidth="190.0" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="465.0" maxWidth="190.0" prefHeight="465.0" prefWidth="190.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="107.5" prefWidth="190.0" text="Perfil" />
-            <Button mnemonicParsing="false" prefHeight="107.5" prefWidth="190.0" text="Cerrar sesión" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="107.5" prefWidth="190.0" text="Clasificación" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="107.5" prefWidth="190.0" text="Pruebas 2020" GridPane.rowIndex="2" />
+            <Button fx:id="perfil" maxHeight="116.25" maxWidth="190.0" minHeight="107.5" minWidth="190.0" mnemonicParsing="false" onAction="#abrirPerfil" prefHeight="116.25" prefWidth="190.0" styleClass="seccion" text="Perfil" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="clasificacion" maxHeight="116.25" maxWidth="190.0" minHeight="107.5" minWidth="190.0" mnemonicParsing="false" onAction="#abrirClasificacion" prefHeight="116.25" prefWidth="190.0" styleClass="seccion" text="Clasificación" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="pruebas" maxHeight="116.25" maxWidth="190.0" minHeight="107.5" minWidth="190.0" mnemonicParsing="false" onAction="#abrirPruebas" prefHeight="116.25" prefWidth="190.0" styleClass="seccion" text="Pruebas 2020" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="cerrarSesion" maxHeight="116.25" maxWidth="190.0" minHeight="116.25" minWidth="190.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="116.25" prefWidth="190.0" styleClass="seccion" text="Cerrar sesión" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
          </children>
       </GridPane>
    </left>

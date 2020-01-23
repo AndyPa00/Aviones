@@ -10,6 +10,7 @@ import org.hibernate.Session;
 
 import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
+import Controlador.ControladorPerfil;
 import Controlador.ControladorRegistrarse;
 import Controlador.ControladorVentanaPiloto;
 import Controlador.ControladorVistaPilotos;
@@ -21,12 +22,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class InicioApp extends Application{
 	private Stage escenario;
 	private BorderPane raiz;
+	private BorderPane vistaPilotos;
 	private Session session1;
 	
 	public static void main(String[] args) {
@@ -98,8 +101,11 @@ public class InicioApp extends Application{
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/Inicio2.fxml"));
+            loader.setLocation(InicioApp.class.getResource("/Vista/Inicio.fxml"));
             AnchorPane inicio = (AnchorPane) loader.load();
+            
+            escenario.setWidth(600);
+            escenario.setHeight(500);
             
             // Set person overview into the center of root layout.
             raiz.setCenter(inicio);
@@ -130,28 +136,60 @@ public class InicioApp extends Application{
 		
 	}
 
-	public void iniciarSesion(String usuario, int numLicencia) {
+	public void iniciarSesion(Credencial usuario) {
 		try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos2.fxml"));
-            BorderPane vistaPilotos = (BorderPane) loader.load();
+            vistaPilotos = (BorderPane) loader.load();
             
             escenario.setWidth(700);
-            escenario.setHeight(465);
+            escenario.setHeight(500);
             // Set person overview into the center of root layout.
             raiz.setCenter(vistaPilotos);
             
             ControladorVistaPilotos controller = loader.getController();
 //            controller.recibeParametros(usuario, numLicencia);
-    		controller.setInicioApp(this);
+    		controller.setInicioApp(this,usuario);
+    		mostrarPerfil(usuario);
+    		
         } catch (IOException e) {
             e.printStackTrace();
         }
 	}
-
-	public void mostrarPerfil() {
-		
+	
+	public void mostrarPerfil(Credencial usuario) {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Perfil.fxml"));
+			GridPane perfil = (GridPane) loader.load();
+			
+			// Set person overview into the center of root layout.
+			vistaPilotos.setCenter(perfil);
+			
+            ControladorPerfil controller = loader.getController();
+    		controller.setInicioApp(this, usuario);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void mostrarClasificacion() {
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/Clasificacion.fxml"));
+            GridPane clasificacion = (GridPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            vistaPilotos.setCenter(clasificacion);
+            
+//            ControladorInicio controller = loader.getController();
+//    		controller.setInicioApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 }
