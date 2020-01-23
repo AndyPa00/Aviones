@@ -12,6 +12,7 @@ import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Controlador.ControladorRegistrarse;
 import Controlador.ControladorVentanaPiloto;
+import Controlador.ControladorVistaPilotos;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import javafx.application.Application;
@@ -25,7 +26,7 @@ import javafx.stage.StageStyle;
 
 public class InicioApp extends Application{
 	private Stage escenario;
-	private BorderPane raizBorder;
+	private BorderPane raiz;
 	private Session session1;
 	
 	public static void main(String[] args) {
@@ -45,11 +46,11 @@ public class InicioApp extends Application{
 		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
 		
 		try {
-			raizBorder = (BorderPane) loader.load();
+			raiz = (BorderPane) loader.load();
 		} catch (IOException e) {
 			System.out.println("Error  " + e.getMessage());
 		}
-		Scene scene = new Scene(raizBorder);
+		Scene scene = new Scene(raiz);
 //		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
 		escenario.setScene(scene);
 		escenario.initStyle(StageStyle.TRANSPARENT);
@@ -67,7 +68,7 @@ public class InicioApp extends Application{
             AnchorPane registrarse = (AnchorPane) loader.load();
             
             // Set person overview into the center of root layout.
-            raizBorder.setCenter(registrarse);
+            raiz.setCenter(registrarse);
             
             ControladorRegistrarse controller = loader.getController();
     		controller.setInicioApp(this);
@@ -84,7 +85,7 @@ public class InicioApp extends Application{
             AnchorPane iniciarSesion = (AnchorPane) loader.load();
             
             // Set person overview into the center of root layout.
-            raizBorder.setCenter(iniciarSesion);
+            raiz.setCenter(iniciarSesion);
             
             ControladorIniciarSesion controller = loader.getController();
     		controller.setInicioApp(this);
@@ -101,10 +102,9 @@ public class InicioApp extends Application{
             AnchorPane inicio = (AnchorPane) loader.load();
             
             // Set person overview into the center of root layout.
-            raizBorder.setCenter(inicio);
+            raiz.setCenter(inicio);
             
             ControladorInicio controller = loader.getController();
-            
     		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,18 +134,24 @@ public class InicioApp extends Application{
 		try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos.fxml"));
-            AnchorPane inicio = (AnchorPane) loader.load();
+            loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos2.fxml"));
+            BorderPane vistaPilotos = (BorderPane) loader.load();
             
+            escenario.setWidth(700);
+            escenario.setHeight(465);
             // Set person overview into the center of root layout.
-            raizBorder.setCenter(inicio);
+            raiz.setCenter(vistaPilotos);
             
-            ControladorVentanaPiloto controller = loader.getController();
-            controller.recibeParametros(usuario, numLicencia);
+            ControladorVistaPilotos controller = loader.getController();
+//            controller.recibeParametros(usuario, numLicencia);
     		controller.setInicioApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+	}
+
+	public void mostrarPerfil() {
+		
 	}
 
 }

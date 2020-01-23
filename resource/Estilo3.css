@@ -1,0 +1,51 @@
+.root {
+	-fx-background-image: url("fondoIS.jpg");
+	-fx-font-size: 11pt;
+	-fx-font-family: "Segoe UI Semibold";
+}
+
+.marco {
+	-fx-background-color: rgba(128,128,128, 0.95);
+	-fx-background-radius: 30;
+}
+
+.label {
+	-fx-text-fill: #D3D8DC;
+}
+
+.text-field {
+	-fx-background-color: -fx-text-box-border, #262f37;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-text-fill: #D3D8DC;
+	-fx-background-radius: 30;
+}
+
+.text-field:focused {
+	-fx-background-color: -fx-focus-color, #262f37;
+	-fx-focus-color: #42A6F9;
+	-fx-text-fill: #D3D8DC;
+}
+
+.hyperlink {
+	-fx-text-fill: #D3D8DC;
+	-fx-underline: true ;
+}
+
+.hyperlink:pressed {
+	-fx-text-fill: #42A6F9;
+}
+
+.button {
+	-fx-background-color: #42A6F9;
+	-fx-text-fill: #D3D8DC;
+}
+
+.button:hover {
+	-fx-background-color: #cfe8fc;
+	-fx-text-fill: #42A6F9;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: #044275;
+  -fx-text-fill: #D3D8DC;
+}
