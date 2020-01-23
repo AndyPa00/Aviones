@@ -2,6 +2,7 @@ package Vista;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Scanner;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -11,6 +12,7 @@ import Modelo.Credencial;
 import Modelo.Manga;
 import Modelo.Piloto;
 import Modelo.Prueba;
+import Modelo.Grupo;
 import Modelo.Puntuacion;
 import Utilidad.Utilidades2;
 
@@ -18,14 +20,28 @@ public class Pruebas {
 
 	private static String obtenerPruebas = "FROM Prueba WHERE idCompeticion = :idCompe";
 	private static String obtenerFechaCompe = "FROM Competicion WHERE idCompeticion = :idCompe";
+	
+	private static String obtenerMangas = "FROM Manga WHERE idPrueba = :idPrueba";
+	private static String obtenerPruebasParaMangas = "FROM Prueba WHERE idPrueba = :idPrueba";
 
+	private static String obtenerGrupos = "FROM Grupo WHERE idManga = :idManga";
+	
+	private static String obtenerPilotos = "FROM Piloto WHERE idGrupo = :idGrupo";
+	
+	
 	Session session;
 
 	public static void main(String[] args) {
 		Pruebas p = new Pruebas();
 
-		p.agregarPrueba(2020, 1, 14, 1);
+		//Funcionan//
 //		p.crearCompeticion(2020, 10, 5);
+		p.agregarPrueba(2020, 1, 14, 1);//idCompeticion
+		
+		//No probadas//
+		p.agregarManga(1);//idPrueba
+		p.agregarGrupo(1);//idManga
+		p.crearPiloto(p.crearPuntuacion(), 1, 1);//idGrupo idManga
 		
 	}
 
@@ -72,21 +88,102 @@ public class Pruebas {
 		@SuppressWarnings("unchecked")
 		Query<Competicion> quCompe = session.createQuery(obtenerFechaCompe);
 		quCompe.setParameter("idCompe", idCompeticion);
-		ArrayList<Competicion> competiciones = (ArrayList<Competicion>) quCompe.list();
-		Calendar calenCompe = competiciones.get(0).getFechaInscripcion();
+		ArrayList<Competicion> competicion = (ArrayList<Competicion>) quCompe.list();
+		Calendar fechaCompe = competicion.get(0).getFechaInscripcion();
 		// Crear la competicion con la nueva prueba
-		Competicion com = new Competicion(idCompeticion, calenCompe, pruebas);
+		Competicion compe = new Competicion(idCompeticion, fechaCompe, pruebas);
 		terminar();
 		empezar();
-		session.update(com);
+		session.update(compe);
 		terminar();
 	}
 	
-	private void crearPiloto() {
-		Piloto pilo = new Piloto(new Puntuacion(1, 5, 5, 5, 5));
-
+	public void agregarManga(int idPrueba) {
+		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+		Manga manga = new Manga(0, grupos);
+		empezar();
+		// Obtener las mangas que sean de esa prueba
+		@SuppressWarnings("unchecked")
+		Query<Manga> quMangas = session.createQuery(obtenerMangas);
+		quMangas.setParameter("idPrueba", idPrueba);
+		ArrayList<Manga> mangas = (ArrayList<Manga>) quMangas.list();
+		mangas.add(manga);
+		terminar();
+		empezar();
+		// Obtengo la prueba
+		@SuppressWarnings("unchecked")
+		Query<Prueba> quPrueba = session.createQuery(obtenerPruebasParaMangas);
+		quPrueba.setParameter("idPrueba", idPrueba);
+		ArrayList<Prueba> prueba = (ArrayList<Prueba>) quPrueba.list();
+		Calendar fechaPrueba = prueba.get(0).getFechaPrueba();
+		int idCompe = prueba.get(0).getIdCompeticion();
+		// Crear la competicion con la nueva prueba
+		Prueba prr = new Prueba(fechaPrueba, mangas, idCompe);
+		terminar();
+		empezar();
+		session.update(prr);
+		terminar();
+		
+	}
+	
+	public void agregarGrupo(int idManga) {
+		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
+		Grupo grup = new Grupo(0, pilotos, idManga);
+		empezar();
+		// Obtener los grupos que sean de esa manga
+		@SuppressWarnings("unchecked")
+		Query<Grupo> quGrupos = session.createQuery(obtenerGrupos);
+		quGrupos.setParameter("idManga", idManga);
+		ArrayList<Grupo> grupos = (ArrayList<Grupo>) quGrupos.list();
+		grupos.add(grup);
+		// Crear la competicion con la nueva prueba
+		Manga mang = new Manga(idManga, grupos);
+		terminar();
+		empezar();
+		session.update(mang);
+		terminar();
+	}
+	
+	//En este metodo a diferencia de los anteriores, que cogíamos los valores de una query se lo ponemos por parametro (asegurarse poner bien)
+	public void crearPiloto(Puntuacion puntuacion, int idGrupo, int idManga) {
+		Piloto pilots = new Piloto(0, puntuacion, idGrupo);
+		System.out.println("Ostia pilots.  Uohh que son de bones, men canteeen ");
+		empezar();
+		// Obtener los pilotos que sean de ese grupo
+		@SuppressWarnings("unchecked")
+		Query<Piloto> quPilotos = session.createQuery(obtenerPilotos);
+		quPilotos.setParameter("idGrupo", idGrupo);
+		ArrayList<Piloto> pilotos = (ArrayList<Piloto>) quPilotos.list();
+		pilotos.add(pilots);
+		terminar();
+		// Crear la competicion con la nueva prueba
+		empezar();
+		Grupo grup = new Grupo(idGrupo, pilotos, idManga);
+		session.update(grup);
+		terminar();
 	}
 
+	private Puntuacion crearPuntuacion() {	//Perfeccionar
+		Scanner teclado = new Scanner(System.in);
+		Puntuacion punt = new Puntuacion();
+		String leer;
+		System.out.print("Altura: ");
+		leer=teclado.nextLine();
+		punt.setAltura(Integer.parseInt(leer));
+		System.out.print("Distancia: ");
+		leer=teclado.nextLine();
+		punt.setDistancia(Integer.parseInt(leer));
+		System.out.print("Tiempo de vuelo: ");
+		leer=teclado.nextLine();
+		punt.setTiempoVuelo(Integer.parseInt(leer));
+		System.out.print("Total: ");
+		leer=teclado.nextLine();
+		punt.setTotal(Integer.parseInt(leer));
+		
+		teclado.close();
+		return punt;
+	}
+	
 	public void crearUsuario() { // Funciona
 		empezar();
 		Credencial cred = new Credencial("LauraAAA", "aaa", 1, "Laura", "Cinturita", "Avispa");

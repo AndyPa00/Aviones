@@ -15,6 +15,9 @@ public class Puntuacion {
 		this.total = total;
 	}
 
+	public Puntuacion() {
+	}
+
 	public int getTiempoVuelo() {
 		return tiempoVuelo;
 	}

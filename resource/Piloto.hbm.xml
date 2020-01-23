@@ -9,5 +9,6 @@
 			<generator class="identity" />
 		</id>
 		<one-to-one name="Puntuacion" constrained="true" cascade="all" />
+<!-- 		Puede que aqui falte algo -->
 	</class>
 </hibernate-mapping>
