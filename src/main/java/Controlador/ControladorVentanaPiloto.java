@@ -1,15 +1,21 @@
 package Controlador;
 
+import java.awt.TextField;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import Modelo.Credencial;
+import Modelo.PilotosConPuntos;
 import Modelo.Puntuacion;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 
 public class ControladorVentanaPiloto {
@@ -19,8 +25,17 @@ public class ControladorVentanaPiloto {
 	@FXML
 	private Text usuario;
 	@FXML
-	private Text numLicencia;
-	
+	private Text numLicencia; 
+
+    // Declaramos la tabla y las columnas
+    @FXML private TableView<PilotosConPuntos> tablaPilotos;
+    @FXML private TableColumn usuarioTab;
+    @FXML private TableColumn nombreTab;
+    @FXML private TableColumn numLicenciaTab;
+    @FXML private TableColumn puntosTab;
+	ObservableList<PilotosConPuntos> pilotos;
+
+    private int posicionPilotoEnTabla;
 	
 	private static String obtenerUsuario = "FROM Credencial";
 	private static String obtenerPuntos = "FROM puntuacion";
@@ -55,11 +70,27 @@ public class ControladorVentanaPiloto {
 	}
 	
 	@FXML
-	private void mostrarClasificacion() {	//Esto hay que pulirlo
+	private void mostrarClasificacion() {	//Esto hay que probarlo
+		ArrayList<Credencial> credenciales = recogerUsuarios();
+		ArrayList<Puntuacion> puntuaciones = recogerPuntuaciones();
+		ArrayList<PilotosConPuntos> pilotosCompe = new ArrayList<PilotosConPuntos>();
+		for (int i = 0; i < credenciales.size(); i++) {
+			PilotosConPuntos pilotes = new PilotosConPuntos(credenciales.get(0).getUsuario(), credenciales.get(i).getNumLicencia(), credenciales.get(i).getNombre(), puntuaciones.get(i).getTotal());
+			pilotosCompe.add(pilotes);
+		}
+		for (int i = 0; i < pilotosCompe.size(); i++) {
+			System.out.println(pilotosCompe.get(i).toString());
+		}
+		for (int i = 0; i < pilotosCompe.size(); i++) {
+			
+		}
+		//Mostrar en la clasificacion
+		 
 		
-	//	PilotosConPuntos pilotos = new PilotosConPuntos(usuario, numLicencia, nombre, puntos);
 	}
 	
+	
+    
 //	@FXML
 //	private void volverAtras() {
 //		app.iniciarSesion(String.valueOf(usuario), Integer.parseInt(String.valueOf(numLicencia)));

@@ -12,7 +12,6 @@ import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Controlador.ControladorPerfil;
 import Controlador.ControladorRegistrarse;
-import Controlador.ControladorVentanaPiloto;
 import Controlador.ControladorVistaPilotos;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
@@ -176,6 +175,7 @@ public class InicioApp extends Application{
 	}
 	
 	public void mostrarClasificacion() {
+		
 		try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();

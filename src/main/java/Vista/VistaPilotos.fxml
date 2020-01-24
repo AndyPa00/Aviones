@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVentanaPiloto">
    <children>
-      <AnchorPane prefHeight="430.0" prefWidth="195.0" style="-fx-background-color: #33c7cc;">
+      <AnchorPane prefHeight="430.0" prefWidth="195.0" style="-fx-background-color: #47cdd1;">
          <children>
             <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="44.0" style="-fx-font-size: 35; -fx-font-family: Century;" text="Piloto" />
             <Text fx:id="numLicencia" fontSmoothingType="LCD" layoutX="113.0" layoutY="43.0" style="-fx-font-size: 30; -fx-font-family: Century;" text="1563" textAlignment="CENTER" wrappingWidth="72.99999237060547" />
