@@ -40,16 +40,20 @@ public class ControladorIniciarSesion {
 			System.out.println("Usuario no encontrado");
 		} else {
 			for (int i = 0; i < credencial.size(); i++) {
-				if(credencial.get(i).getContrasena().equals(contrasena.getText())) {
-				System.out.println("Usuario y contra correctas");
-				app.iniciarSesion(credencial.get(0));
-			} else {
-				System.out.println("Contrasena incorrecta");
+				if (credencial.get(i).getContrasena().equals(contrasena.getText())) {
+					System.out.println("Usuario y contra correctas");
+					if (credencial.get(i).getNumLicencia() == 1 || credencial.get(i).getNumLicencia() == 2) {
+						app.iniciarSesionAdmin(credencial.get(0));
+					} else {
+						app.iniciarSesion(credencial.get(0));
+					}
+				} else {
+					System.out.println("Contrasena incorrecta");
+				}
 			}
-			}
-			
+
 		}
-		
+
 	}
 	
 	@FXML

@@ -28,7 +28,7 @@ public class ControladorVentanaPiloto {	//Clase en prueba
 	private Session session;
 	private InicioApp app;
 	@FXML private Text usuario;
-	@FXML private Text numLicencia; 
+	@FXML private Text numLicencia;
 
     // Declaramos la tabla y las columnas
 	@FXML private TableView<PilotosConPuntos> tablaPilotos;

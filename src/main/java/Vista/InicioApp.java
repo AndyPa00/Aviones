@@ -13,6 +13,7 @@ import Controlador.ControladorInicio;
 import Controlador.ControladorPerfil;
 import Controlador.ControladorRegistrarse;
 import Controlador.ControladorVistaPilotos;
+import Controlador.ControladorVistaPilotosAdmin;
 import Modelo.Credencial;
 import Utilidad.Utilidades2;
 import javafx.application.Application;
@@ -157,6 +158,28 @@ public class InicioApp extends Application{
         }
 	}
 	
+	public void iniciarSesionAdmin(Credencial usuario) {
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/VistaAdmin.fxml"));
+            vistaPilotos = (BorderPane) loader.load();
+            
+            escenario.setWidth(700);
+            escenario.setHeight(500);
+            // Set person overview into the center of root layout.
+            raiz.setCenter(vistaPilotos);
+            
+            ControladorVistaPilotosAdmin controller = loader.getController();
+//            controller.recibeParametros(usuario, numLicencia);
+    		controller.setInicioApp(this,usuario);
+    		mostrarPerfil(usuario);
+    		
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public void mostrarPerfil(Credencial usuario) {
 		try {
 			// Load person overview.
@@ -184,6 +207,23 @@ public class InicioApp extends Application{
             
             // Set person overview into the center of root layout.
             vistaPilotos.setCenter(clasificacion);
+            
+//            ControladorInicio controller = loader.getController();
+//    		controller.setInicioApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public void mostrarEditor() {
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/Editar.fxml"));
+            GridPane editor = (GridPane) loader.load();
+            
+            // Set person overview into the center of root layout.
+            vistaPilotos.setCenter(editor);
             
 //            ControladorInicio controller = loader.getController();
 //    		controller.setInicioApp(this);
