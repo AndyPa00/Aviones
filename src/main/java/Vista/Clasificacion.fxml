@@ -17,13 +17,13 @@
       <RowConstraints vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <TextField promptText="Buscar..." />
+      <TextField fx:id="buscar" promptText="Buscar..." />
       <TableView GridPane.rowIndex="1">
         <columns>
-          <TableColumn maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Usuario" />
-            <TableColumn maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Nombre" />
-            <TableColumn maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Licencia" />
-            <TableColumn maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Puntuación" />
+          <TableColumn fx:id="usuarioTab" maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Usuario" />
+            <TableColumn fx:id="nombreTab" maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Nombre" />
+            <TableColumn fx:id="numLicenciaTab" maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Licencia" />
+            <TableColumn fx:id="puntosTab" maxWidth="122.5" minWidth="40.0" prefWidth="122.5" text="Puntuación" />
         </columns>
       </TableView>
    </children>

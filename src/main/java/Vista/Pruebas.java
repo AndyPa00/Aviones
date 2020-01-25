@@ -26,8 +26,7 @@ public class Pruebas {
 
 	private static String obtenerGrupos = "FROM Grupo WHERE idManga = :idManga";
 	
-	private static String obtenerPilotos = "FROM Piloto WHERE idGrupo = :idGrupo";
-	
+	private static String obtenerPilotos = "FROM Piloto WHERE idGrupo = :idGrupo";	
 	
 	Session session;
 
@@ -54,16 +53,6 @@ public class Pruebas {
 		session.save(com);
 		terminar();
 	}
-
-//	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {
-//		empezar();
-//		Calendar calen = Calendar.getInstance();
-//		calen.set(ano, mes, dia);
-//		ArrayList<Manga> mangas = new ArrayList<Manga>();
-//		Prueba prr = new Prueba(calen, mangas, idCompeticion);
-//		session.save(prr);
-//		terminar();
-//	}
 
 	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {// Que no se nos olvide qeu en agiosto no se puede
 		empezar();
@@ -99,7 +88,15 @@ public class Pruebas {
 	
 	public void agregarManga(int idPrueba) {
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-		Manga manga = new Manga(0, grupos);
+		/*	No necesario
+		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
+		Puntuacion pu = new Puntuacion(1, 100, 50, 50, 400);
+		Piloto p = new Piloto(1, pu, 1);
+		pilotos.add(p);
+		Grupo g = new Grupo(1, pilotos, 1);
+		grupos.add(g);
+		*/
+		Manga manga = new Manga(1, grupos);
 		empezar();
 		// Obtener las mangas que sean de esa prueba
 		@SuppressWarnings("unchecked")
@@ -107,8 +104,7 @@ public class Pruebas {
 		quMangas.setParameter("idPrueba", idPrueba);
 		ArrayList<Manga> mangas = (ArrayList<Manga>) quMangas.list();
 		mangas.add(manga);
-		terminar();
-		
+		terminar();		
 		empezar();
 		// Obtengo la prueba
 		@SuppressWarnings("unchecked")
@@ -118,21 +114,20 @@ public class Pruebas {
 		//Cogemos fechaPrueba y idCompeticion para luego pasarlas a la prueba con mangas actualizadas
 		Calendar fechaPrueba = prueba.get(0).getFechaPrueba();
 		int idCompe = prueba.get(0).getIdCompeticion();
+		idCompe=1;	//Ni con esta linea funciona  :'(
 		// Crear la competicion con la nueva prueba
 		Prueba prr = new Prueba(fechaPrueba, mangas, idCompe);
+		prr.setIdPrueba(idPrueba);
 		
-		System.out.println(prr.getIdCompeticion() + "idCompe");
-		System.out.println(prr.getIdPrueba() + "idPrueba");
-		System.out.println(prr.getMangas().size() + "mangas");
-		System.out.println(prr.getFechaPrueba().toString());
+		System.out.println(prr.getIdCompeticion() + " idCompe");
+		System.out.println(prr.getIdPrueba() + " idPrueba");
+		System.out.println(prr.getMangas().get(0).getIdManga() + " mangas 1");
+		System.out.println(prr.getMangas().get(0).getGrupos().toString() + " mangas 2");
 		
-		terminar();
-		
+		terminar();		
 		empezar();
 		session.saveOrUpdate(prr);
-	//	session.update(prr);
-		terminar();
-		
+		terminar();		
 	}
 	
 	public void agregarGrupo(int idManga) {
@@ -172,7 +167,7 @@ public class Pruebas {
 		terminar();
 	}
 
-	private Puntuacion crearPuntuacion() {	//Perfeccionar
+	public Puntuacion crearPuntuacion() {	//Perfeccionar
 		Scanner teclado = new Scanner(System.in);
 		Puntuacion punt = new Puntuacion();
 		String leer;
