@@ -23,12 +23,12 @@ public class ControladorInicio {
 	
 	@FXML
     private void olvideUsuario() {
-        app.recuperarUsuario();
+        app.mostrarRecuperarUsuario();
     }
 	
 	@FXML
     private void olvideContrasena() {
-        app.recuperarContrasena();
+        app.mostrarRecuperarContrasena();
     }	
 	
 	@FXML
