@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Controlador.ControladorPerfil;
+import Controlador.ControladorPruebas;
 import Controlador.ControladorRecuperarPassw;
 import Controlador.ControladorRecuperarUsser;
 import Controlador.ControladorRegistrarse;
@@ -28,12 +29,12 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class InicioApp extends Application{
+public class InicioApp extends Application {
 	private Stage escenario;
 	private BorderPane raiz;
 	private BorderPane vistaPilotos;
 	private Session session1;
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -45,11 +46,11 @@ public class InicioApp extends Application{
 		iniciarRaiz();
 		mostrarInicio();
 	}
-	
+
 	public void iniciarRaiz() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
-		
+
 		try {
 			raiz = (BorderPane) loader.load();
 		} catch (IOException e) {
@@ -59,66 +60,66 @@ public class InicioApp extends Application{
 //		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
 		escenario.setScene(scene);
 		escenario.initStyle(StageStyle.TRANSPARENT);
-		
+
 		ControladorRegistrarse controller = loader.getController();
 		controller.setInicioApp(this);
 		escenario.show();
 	}
-	
+
 	public void mostrarRegistrarse() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/Registrarse.fxml"));
-            AnchorPane registrarse = (AnchorPane) loader.load();
-            
-            // Set person overview into the center of root layout.
-            raiz.setCenter(registrarse);
-            
-            ControladorRegistrarse controller = loader.getController();
-    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-	
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Registrarse.fxml"));
+			AnchorPane registrarse = (AnchorPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			raiz.setCenter(registrarse);
+
+			ControladorRegistrarse controller = loader.getController();
+			controller.setInicioApp(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void mostrarIniciarSesion() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/IniciarSesion.fxml"));
-            AnchorPane iniciarSesion = (AnchorPane) loader.load();
-            
-            // Set person overview into the center of root layout.
-            raiz.setCenter(iniciarSesion);
-            
-            ControladorIniciarSesion controller = loader.getController();
-    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-	
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/IniciarSesion.fxml"));
+			AnchorPane iniciarSesion = (AnchorPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			raiz.setCenter(iniciarSesion);
+
+			ControladorIniciarSesion controller = loader.getController();
+			controller.setInicioApp(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void mostrarInicio() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/Inicio.fxml"));
-            AnchorPane inicio = (AnchorPane) loader.load();
-            
-            escenario.setWidth(600);
-            escenario.setHeight(500);
-            
-            // Set person overview into the center of root layout.
-            raiz.setCenter(inicio);
-            
-            ControladorInicio controller = loader.getController();
-    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-	
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Inicio.fxml"));
+			AnchorPane inicio = (AnchorPane) loader.load();
+
+			escenario.setWidth(600);
+			escenario.setHeight(500);
+
+			// Set person overview into the center of root layout.
+			raiz.setCenter(inicio);
+
+			ControladorInicio controller = loader.getController();
+			controller.setInicioApp(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@FXML
 	public void registrarse() {
 		session1 = Utilidades2.getSessionFactory().openSession();
@@ -129,141 +130,160 @@ public class InicioApp extends Application{
 			System.out.println(listaUsuarios.get(i).toString());
 		}
 	}
-	
+
 	public void mostrarRecuperarUsuario() {
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaUser.fxml"));
-            AnchorPane inicio = (AnchorPane) loader.load();
-            
-            escenario.setWidth(600);
-            escenario.setHeight(500);
-            
-            // Set person overview into the center of root layout.
-            raiz.setCenter(inicio);
-            
-            ControladorRecuperarUsser controller = loader.getController();
-    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaUser.fxml"));
+			AnchorPane inicio = (AnchorPane) loader.load();
+
+			escenario.setWidth(600);
+			escenario.setHeight(500);
+
+			// Set person overview into the center of root layout.
+			raiz.setCenter(inicio);
+
+			ControladorRecuperarUsser controller = loader.getController();
+			controller.setInicioApp(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void mostrarRecuperarContrasena() {
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaPassw.fxml"));
-            AnchorPane inicio = (AnchorPane) loader.load();
-            
-            escenario.setWidth(600);
-            escenario.setHeight(500);
-            
-            // Set person overview into the center of root layout.
-            raiz.setCenter(inicio);
-            
-            ControladorRecuperarPassw controller = loader.getController();
-    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaPassw.fxml"));
+			AnchorPane inicio = (AnchorPane) loader.load();
+
+			escenario.setWidth(600);
+			escenario.setHeight(500);
+
+			// Set person overview into the center of root layout.
+			raiz.setCenter(inicio);
+
+			ControladorRecuperarPassw controller = loader.getController();
+			controller.setInicioApp(this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void iniciarSesion(Credencial usuario) {
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos2.fxml"));
-            vistaPilotos = (BorderPane) loader.load();
-            
-            escenario.setWidth(700);
-            escenario.setHeight(500);
-            // Set person overview into the center of root layout.
-            raiz.setCenter(vistaPilotos);
-            
-            ControladorVistaPilotos controller = loader.getController();
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/VistaPilotos2.fxml"));
+			vistaPilotos = (BorderPane) loader.load();
+
+			escenario.setWidth(700);
+			escenario.setHeight(500);
+			// Set person overview into the center of root layout.
+			raiz.setCenter(vistaPilotos);
+
+			ControladorVistaPilotos controller = loader.getController();
 //            controller.recibeParametros(usuario, numLicencia);
-    		controller.setInicioApp(this,usuario);
-    		mostrarPerfil(usuario);
-    		
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			controller.setInicioApp(this, usuario);
+			mostrarPerfil(usuario);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void iniciarSesionAdmin(Credencial usuario) {
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/VistaAdmin.fxml"));
-            vistaPilotos = (BorderPane) loader.load();
-            
-            escenario.setWidth(700);
-            escenario.setHeight(500);
-            // Set person overview into the center of root layout.
-            raiz.setCenter(vistaPilotos);
-            
-            ControladorVistaPilotosAdmin controller = loader.getController();
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/VistaAdmin.fxml"));
+			vistaPilotos = (BorderPane) loader.load();
+
+			escenario.setWidth(700);
+			escenario.setHeight(500);
+			// Set person overview into the center of root layout.
+			raiz.setCenter(vistaPilotos);
+
+			ControladorVistaPilotosAdmin controller = loader.getController();
 //            controller.recibeParametros(usuario, numLicencia);
-    		controller.setInicioApp(this,usuario);
-    		mostrarPerfil(usuario);
-    		
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			controller.setInicioApp(this, usuario);
+			mostrarPerfil(usuario);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void mostrarPerfil(Credencial usuario) {
 		try {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(InicioApp.class.getResource("/Vista/Perfil.fxml"));
 			GridPane perfil = (GridPane) loader.load();
-			
+
 			// Set person overview into the center of root layout.
 			vistaPilotos.setCenter(perfil);
-			
-            ControladorPerfil controller = loader.getController();
-    		controller.setInicioApp(this, usuario);
+
+			ControladorPerfil controller = loader.getController();
+			controller.setInicioApp(this, usuario);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void mostrarClasificacion() {
-		
+
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/Clasificacion.fxml"));
-            GridPane clasificacion = (GridPane) loader.load();
-            
-            // Set person overview into the center of root layout.
-            vistaPilotos.setCenter(clasificacion);
-            
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Clasificacion.fxml"));
+			GridPane clasificacion = (GridPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			vistaPilotos.setCenter(clasificacion);
+
 //            ControladorInicio controller = loader.getController();
 //    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
+	public void mostrarPruebas() {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Pruebas.fxml"));
+			GridPane clasificacion = (GridPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			vistaPilotos.setCenter(clasificacion);
+
+			ControladorPruebas controller = loader.getController();
+			controller.setInicioApp(this);
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void mostrarEditor() {
 		try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(InicioApp.class.getResource("/Vista/Editar.fxml"));
-            GridPane editor = (GridPane) loader.load();
-            
-            // Set person overview into the center of root layout.
-            vistaPilotos.setCenter(editor);
-            
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(InicioApp.class.getResource("/Vista/Editar.fxml"));
+			GridPane editor = (GridPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			vistaPilotos.setCenter(editor);
+
 //            ControladorInicio controller = loader.getController();
 //    		controller.setInicioApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

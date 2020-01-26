@@ -48,6 +48,7 @@ public class ControladorVistaPilotos {
 		perfil.setStyle("-fx-background-color: #42A6F9;");
 		clasificacion.setStyle("-fx-background-color: #42A6F9;");
 		pruebas.setStyle("-fx-background-color: #2B6FA8;");
+		app.mostrarPruebas();
 	}
 	
 	@FXML
@@ -59,10 +60,5 @@ public class ControladorVistaPilotos {
 //	private void abrirClasificacion() {
 //		app.mostrarClasificacion();
 //	}
-//	
-//	@FXML
-//	private void abrirPruebas() {
-//		app.mostrarPruebas();
-//	}
-
+	
 }

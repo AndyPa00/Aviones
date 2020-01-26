@@ -3,6 +3,13 @@ package Modelo;
 import java.util.Calendar;
 import java.util.List;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Prueba {
 	private int idPrueba;
 	private Calendar fechaPrueba;
@@ -48,6 +55,14 @@ public class Prueba {
 
 	public void setIdCompeticion(int idCompeticion) {
 		this.idCompeticion = idCompeticion;
+	}
+	
+	public StringProperty idProperty() {
+        return new SimpleStringProperty(String.valueOf(idPrueba));
+    }
+
+	public StringProperty fechaProperty() {
+		return new SimpleStringProperty(fechaPrueba.getTime().toString());
 	}
 
 }

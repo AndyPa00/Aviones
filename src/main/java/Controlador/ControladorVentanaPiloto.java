@@ -42,7 +42,7 @@ public class ControladorVentanaPiloto {	//Clase en prueba
 	FilteredList<PilotosConPuntos> datosFiltrados;
 	
 	private static String obtenerUsuario = "FROM Credencial";
-	private static String obtenerPuntos = "FROM puntuacion";
+	private static String obtenerPuntos = "FROM Puntuacion";
 
 	@FXML
 	private void initialize() {
