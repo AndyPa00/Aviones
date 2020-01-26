@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="430.0" maxWidth="510.0" prefHeight="430.0" prefWidth="510.0" style="-fx-background-color: #2B6FA8;" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVentanaAdmin">
@@ -104,14 +105,14 @@
                   <Font name="Segoe UI" size="19.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="313.0" prefHeight="55.0" prefWidth="176.0" style="-fx-background-color: #055494;" text="Administrador" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="314.0" layoutY="-1.0" prefHeight="55.0" prefWidth="176.0" style="-fx-background-color: #04467c;" text="Administrador" textFill="WHITE" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="-4.0">
                <font>
                   <Font name="Segoe UI Semibold" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="197.0" prefHeight="32.0" prefWidth="176.0" text="Competición (id):">
+            <Label layoutX="32.0" layoutY="194.0" prefHeight="32.0" prefWidth="176.0" text="Competición (id):">
                <font>
-                  <Font name="Segoe UI Semibold" size="22.0" />
+                  <Font name="Segoe UI Semibold" size="18.0" />
                </font>
             </Label>
             <TextField fx:id="compeID" alignment="CENTER" layoutX="243.0" layoutY="194.0" prefHeight="44.0" prefWidth="48.0" promptText="1">
@@ -159,6 +160,10 @@
                   <Font name="Segoe UI Semibold" size="22.0" />
                </font>
             </Label>
+            <Circle fill="#0084ff" layoutX="9.0" layoutY="39.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#0084ff" layoutX="9.0" layoutY="333.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#0084ff" layoutX="9.0" layoutY="251.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#0084ff" layoutX="9.0" layoutY="131.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </children>

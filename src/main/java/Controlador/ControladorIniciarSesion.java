@@ -57,6 +57,11 @@ public class ControladorIniciarSesion {
 	}
 	
 	@FXML
+	private void recuperarCredenciales() {
+		app.mostrarRecuperarContrasena();
+	}
+	
+	@FXML
 	private void volverAtras() {
 		app.mostrarInicio();
 	}

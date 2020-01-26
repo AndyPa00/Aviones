@@ -14,6 +14,8 @@ public class ControladorVistaPilotos {
 	private Button clasificacion;
 	@FXML
 	private Button pruebas;
+	@FXML
+	private Button cerrarSesion;
 	private Credencial usuario;
 
 	/* @param Usuario */

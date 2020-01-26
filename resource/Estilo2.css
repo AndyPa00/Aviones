@@ -80,3 +80,7 @@
 	-fx-text-fill: #D3D8DC;
 	-fx-font-size: 15.0pt;
 }
+
+.recuperar{
+	-fx-background-image: url("fondoRecuperar.jpeg");
+}

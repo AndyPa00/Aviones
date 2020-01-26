@@ -92,9 +92,9 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		}catch (Exception e) {
 			System.out.println("Error "+e.getMessage());
 		}
-		if (bienFormado) {
+		if(bienCreado(bienFormado, ano, mes, dia, 1)) {
 			crearCompeticion(ano, mes, dia);
-		}		
+		}
 	}
 	
 	public boolean hayCompe() {
@@ -148,17 +148,8 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		}catch (Exception e) {
 			System.out.println("Error "+e.getMessage());
 		}
-		if (bienFormado && mes!=8) {
+		if(bienCreado(bienFormado, ano, mes, dia, idCompet)) {
 			crearPrueba(ano, mes, dia, idCompet);
-		}else {
-			competicio.setDisable(true);
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Descanso");
-			alert.setHeaderText("Estas de vacaciones ligueras!!");
-			alert.setContentText("En agosto es mejor descansar ya que así lo acordamos.");
-
-			alert.showAndWait();
-			System.exit(0);
 		}
 	}
 	
@@ -194,12 +185,28 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		terminar();
 	}
 	
-	@FXML
-	private void volver() {
-		Credencial c = new Credencial();
-		c.setUsuario(String.valueOf(usuario));
-		c.setContrasena(String.valueOf(usuario));
-		app.iniciarSesion(c);
+	public boolean bienCreado(boolean bienFormado, int ano, int mes, int dia, int idCompet) {
+		if (bienFormado && mes!=8 && idCompet>0 && idCompet<9999 && ano>2000 && ano<3000) {
+			if (mes==1 || mes==3 || mes==5 || mes==7 || mes==10 || mes==12) {
+				if (dia<=31 && dia>=1) {
+					return true;
+				}
+			}else if (mes==2 || mes==4 || mes==6 || mes==9 || mes==11) {
+				if (dia<=30 && dia>=1) {
+					return true;
+				}
+			}			
+		}else {
+			competicio.setDisable(true);
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Descanso");
+			alert.setHeaderText("Estas de vacaciones ligueras!!");
+			alert.setContentText("En agosto es mejor descansar ya que así lo acordamos.");
+
+			alert.showAndWait();
+			System.exit(0);
+		}
+		return false;
 	}
 
 	public void empezar() {

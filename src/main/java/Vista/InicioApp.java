@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import Controlador.ControladorIniciarSesion;
 import Controlador.ControladorInicio;
 import Controlador.ControladorPerfil;
+import Controlador.ControladorRecuperarPassw;
+import Controlador.ControladorRecuperarUsser;
 import Controlador.ControladorRegistrarse;
 import Controlador.ControladorVistaPilotos;
 import Controlador.ControladorVistaPilotosAdmin;
@@ -128,12 +130,44 @@ public class InicioApp extends Application{
 		}
 	}
 	
-	public void recuperarUsuario() {
-		
+	public void mostrarRecuperarUsuario() {
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaUser.fxml"));
+            AnchorPane inicio = (AnchorPane) loader.load();
+            
+            escenario.setWidth(600);
+            escenario.setHeight(500);
+            
+            // Set person overview into the center of root layout.
+            raiz.setCenter(inicio);
+            
+            ControladorRecuperarUsser controller = loader.getController();
+    		controller.setInicioApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
-	public void recuperarContrasena() {
-		
+	public void mostrarRecuperarContrasena() {
+		try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(InicioApp.class.getResource("/Vista/RecuperaPassw.fxml"));
+            AnchorPane inicio = (AnchorPane) loader.load();
+            
+            escenario.setWidth(600);
+            escenario.setHeight(500);
+            
+            // Set person overview into the center of root layout.
+            raiz.setCenter(inicio);
+            
+            ControladorRecuperarPassw controller = loader.getController();
+    		controller.setInicioApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 	public void iniciarSesion(Credencial usuario) {
