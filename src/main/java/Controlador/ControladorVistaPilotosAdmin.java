@@ -1,13 +1,8 @@
 package Controlador;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-
 import org.hibernate.Session;
 
-import Modelo.Competicion;
 import Modelo.Credencial;
-import Modelo.Prueba;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
@@ -24,9 +19,7 @@ public class ControladorVistaPilotosAdmin {
 	@FXML private Label punto;
 	
 	private Credencial usuario;
-	
 	private Session session;
-	private static String existeCompeticion = "FROM Competicion";
 
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app, Credencial usuario) {

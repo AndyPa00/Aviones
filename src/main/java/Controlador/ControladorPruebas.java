@@ -1,6 +1,5 @@
 package Controlador;
 
-import java.util.Calendar;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -32,7 +31,7 @@ public class ControladorPruebas {
 
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
-		this.app = app;
+		this.setApp(app);
 		empezar();
 		List<Prueba> datosPruebas = session.createQuery(obtenerPruebas, Prueba.class).getResultList();
 		terminar();
@@ -57,6 +56,14 @@ public class ControladorPruebas {
 	private void terminar() {
 		session.getTransaction().commit();
 		session.close();
+	}
+
+	public InicioApp getApp() {
+		return app;
+	}
+
+	public void setApp(InicioApp app) {
+		this.app = app;
 	}
 
 }

@@ -84,3 +84,10 @@
 .recuperar{
 	-fx-background-image: url("fondoRecuperar.jpeg");
 }
+
+.text-field2{
+	-fx-background-color: -fx-text-box-border, #262f37;
+	-fx-background-insets: 0.0, 0.0 0.0 0.0 0.0;
+	-fx-text-fill: #D3D8DC;
+	-fx-background-radius: 2.5;
+}
