@@ -22,10 +22,12 @@ import Utilidad.Utilidades2;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -64,6 +66,11 @@ public class InicioApp extends Application {
 		ControladorRegistrarse controller = loader.getController();
 		controller.setInicioApp(this);
 		escenario.show();
+		
+		/* Centrar ventana */
+		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+	    escenario.setX((screenBounds.getWidth() - escenario.getWidth()) / 2); 
+	    escenario.setY((screenBounds.getHeight() - escenario.getHeight()) / 2);
 	}
 
 	public void mostrarRegistrarse() {
@@ -180,6 +187,11 @@ public class InicioApp extends Application {
 
 			escenario.setWidth(700);
 			escenario.setHeight(500);
+			/* Centrar ventana */
+			Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+		    escenario.setX((screenBounds.getWidth() - escenario.getWidth()) / 2); 
+		    escenario.setY((screenBounds.getHeight() - escenario.getHeight()) / 2);
+		    
 			// Set person overview into the center of root layout.
 			raiz.setCenter(vistaPilotos);
 

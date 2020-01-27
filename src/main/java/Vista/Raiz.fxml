@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../../../resource/Estilo2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../../../resource/Estilo2.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorRegistrarse">
    <top>
-      <HBox alignment="CENTER_RIGHT" onMouseDragged="#arrastrado" onMousePressed="#presionado" prefHeight="35.0" prefWidth="600.0" styleClass="hbox" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" onMouseDragged="#arrastrado" onMousePressed="#presionado" styleClass="hbox" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#minimizar" prefHeight="35.0" prefWidth="35.0" text="─">
                <styleClass>
