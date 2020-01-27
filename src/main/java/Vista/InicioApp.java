@@ -274,7 +274,7 @@ public class InicioApp extends Application {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(InicioApp.class.getResource("/Vista/Editar.fxml"));
-			GridPane editor = (GridPane) loader.load();
+			AnchorPane editor = (AnchorPane) loader.load();
 
 			// Set person overview into the center of root layout.
 			vistaPilotos.setCenter(editor);

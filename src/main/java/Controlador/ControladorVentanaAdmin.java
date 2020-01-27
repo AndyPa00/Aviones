@@ -200,7 +200,7 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 			competicio.setDisable(true);
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Descanso");
-			alert.setHeaderText("Estas de vacaciones ligueras!!");
+			alert.setHeaderText("Estas de vacaciones ligeras!!");
 			alert.setContentText("En agosto es mejor descansar ya que así lo acordamos.");
 
 			alert.showAndWait();
