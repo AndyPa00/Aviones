@@ -88,15 +88,7 @@ public class Pruebas {
 	
 	public void agregarManga(int idPrueba) {
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-		/*	No necesario
-		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
-		Puntuacion pu = new Puntuacion(1, 100, 50, 50, 400);
-		Piloto p = new Piloto(1, pu, 1);
-		pilotos.add(p);
-		Grupo g = new Grupo(1, pilotos, 1);
-		grupos.add(g);
-		*/
-		Manga manga = new Manga(1, grupos);
+		Manga manga = new Manga(grupos, 1);
 		empezar();
 		// Obtener las mangas que sean de esa prueba
 		@SuppressWarnings("unchecked")
@@ -114,6 +106,7 @@ public class Pruebas {
 		//Cogemos fechaPrueba y idCompeticion para luego pasarlas a la prueba con mangas actualizadas
 		Calendar fechaPrueba = prueba.get(0).getFechaPrueba();
 		int idCompe = prueba.get(0).getIdCompeticion();
+		System.out.println(idCompe);
 		idCompe=1;	//Ni con esta linea funciona  :'(
 		// Crear la competicion con la nueva prueba
 		Prueba prr = new Prueba(fechaPrueba, mangas, idCompe);
@@ -130,7 +123,7 @@ public class Pruebas {
 		terminar();		
 	}
 	
-	public void agregarGrupo(int idManga) {
+	public void agregarGrupo(int idManga, int idCompeticion) {
 		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
 		Grupo grup = new Grupo(0, pilotos, idManga);
 		empezar();
@@ -141,7 +134,7 @@ public class Pruebas {
 		ArrayList<Grupo> grupos = (ArrayList<Grupo>) quGrupos.list();
 		grupos.add(grup);
 		// Crear la competicion con la nueva prueba
-		Manga mang = new Manga(idManga, grupos);
+		Manga mang = new Manga( grupos, idCompeticion);
 		terminar();
 		empezar();
 		session.update(mang);

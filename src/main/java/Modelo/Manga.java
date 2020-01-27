@@ -5,10 +5,14 @@ import java.util.List;
 public class Manga {
 	private int idManga;
 	List<Grupo> grupos;
+	private int idCompeticion;
 	
-	public Manga(int idManga, List<Grupo> grupos) {
-		this.idManga = idManga;
+	public Manga() {
+	}
+
+	public Manga(List<Grupo> grupos, int idCompeticion) {
 		this.grupos = grupos;
+		this.idCompeticion = idCompeticion;
 	}
 
 	public int getIdManga() {
@@ -25,6 +29,14 @@ public class Manga {
 
 	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
+	}
+
+	public int getIdCompeticion() {
+		return idCompeticion;
+	}
+
+	public void setIdCompeticion(int idCompeticion) {
+		this.idCompeticion = idCompeticion;
 	}
 	
 }

@@ -11,5 +11,9 @@
 		<property name="fechaPrueba" type="java.util.Calendar">
 			<column name="fechaPrueba" />
 		</property>
+        <bag name="mangas" table="Manga" cascade="all">
+            <key column="idPrueba" not-null="true"></key>
+            <one-to-many class="Modelo.Manga"/>
+        </bag>
 	</class>
 </hibernate-mapping>
