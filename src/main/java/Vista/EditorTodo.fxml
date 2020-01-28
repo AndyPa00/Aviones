@@ -18,14 +18,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="58.0" layoutY="337.0" prefHeight="45.0" prefWidth="90.0" style="-fx-font-size: 22;" text="Fecha:" textFill="WHITE" AnchorPane.bottomAnchor="9.0" />
-                        <ImageView fitHeight="310.0" fitWidth="466.0" layoutX="22.0" layoutY="18.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="22.0">
+                        <AnchorPane layoutX="24.0" layoutY="14.0" prefHeight="366.0" prefWidth="460.0" styleClass="marco" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="14.0" />
+                        <AnchorPane layoutX="27.0" layoutY="307.0" prefHeight="73.0" prefWidth="460.0" styleClass="titulo" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                        <Label layoutX="21.0" layoutY="260.0" prefHeight="45.0" prefWidth="71.0" style="-fx-font-size: 22;" text="Fecha:" textFill="WHITE" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="70.0" />
+                        <ImageView fitHeight="266.0" fitWidth="400.0" layoutX="55.0" layoutY="27.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="27.0">
                            <image>
                               <Image url="@../../../../../../Desktop/fotoCompe.jpg" />
                            </image>
                         </ImageView>
-                        <DatePicker layoutX="168.0" layoutY="344.0" prefHeight="36.0" prefWidth="166.0" promptText="01/01/2019" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="344.0" />
-                        <Button layoutX="393.0" layoutY="341.0" mnemonicParsing="false" style="-fx-font-size: 16;" text=" Crear " AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="343.0" />
+                        <DatePicker layoutX="168.0" layoutY="335.0" prefHeight="36.0" prefWidth="166.0" promptText="XX/XX/XXXX" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="326.0" />
+                        <Button layoutX="393.0" layoutY="341.0" mnemonicParsing="false" onAction="#empezarCompe" style="-fx-font-size: 16;" styleClass="botonRedondo" text=" Crear " AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="326.0" />
                      </children>
                   </AnchorPane>
             </content>
