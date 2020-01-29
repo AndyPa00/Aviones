@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="430.0" prefWidth="510.0" style="-fx-background-color: #2B6FA8;" stylesheets="@../../../../resource/Estilo2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVentanaAdmin">
    <children>
@@ -28,6 +29,7 @@
                         </ImageView>
                         <DatePicker layoutX="168.0" layoutY="335.0" prefHeight="36.0" prefWidth="166.0" promptText="XX/XX/XXXX" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="326.0" />
                         <Button layoutX="393.0" layoutY="341.0" mnemonicParsing="false" onAction="#empezarCompe" style="-fx-font-size: 16;" styleClass="botonRedondo" text=" Crear " AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="326.0" />
+                        <Text fx:id="correcionClasificacion" fill="RED" layoutX="120.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 22;" textAlignment="CENTER" wrappingWidth="271.0" />
                      </children>
                   </AnchorPane>
             </content>
