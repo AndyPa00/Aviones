@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -17,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -26,6 +28,9 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 	private InicioApp app;
 	@FXML private Text usuario;
 	@FXML private Text numLicencia;
+	@FXML private DatePicker fechaCompe;
+	@FXML private Text correcionClasificacion;
+	
 	@FXML private TextField diaC;
 	@FXML private TextField mesC;
 	@FXML private TextField annoC;
@@ -80,57 +85,75 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 	
 	@FXML
 	private void empezarCompe() {
-		int dia = 0, mes = 0, ano = 0;
-		boolean bienFormado = true;
-		//Aqui le paso si los parametros son buenos
-		try {
-			dia = Integer.parseInt(diaC.getText());
-			mes = Integer.parseInt(mesC.getText());
-			ano = Integer.parseInt(annoC.getText());
-		} catch (NumberFormatException e) {
-			bienFormado = false;
-		}catch (Exception e) {
-			System.out.println("Error "+e.getMessage());
-		}
-		if(bienCreado(bienFormado, ano, mes, dia, 1)) {
-			crearCompeticion(ano, mes, dia);
-		}
-	}
-	
-	public boolean hayCompe() {
+		LocalDate fechaDeLaCompe = null;
+		boolean existeCompe = true, bienFormado = true;;
+		
 		empezar();
 		@SuppressWarnings("unchecked")
-		Query<Competicion> qIS = session.createQuery(obtenerCompe);
-		ArrayList<Competicion> compes = (ArrayList<Competicion>) qIS.list();
+		Query<Competicion> qCom = session.createQuery(obtenerCompe);
+		ArrayList<Competicion> competisiones = (ArrayList<Competicion>) qCom.list();
 		terminar();
-		if (compes.isEmpty()) {
-			return false;
+		if (competisiones.isEmpty()) {
+			existeCompe = false;
 		}else {
-			return true;
-		}		
-	}
-	
-	public void crearCompeticion(int ano, int mes, int dia) {
-		if (!hayCompe()) {
-			empezar();
-			Calendar c = Calendar.getInstance();
-			c.set(ano, mes-1, dia);
-			ArrayList<Prueba> pruebas = new ArrayList<Prueba>();
-			Competicion com = new Competicion(c, pruebas);
-			session.save(com);
-			terminar();
+			try {
+				fechaDeLaCompe = fechaCompe.getValue();
+			} catch (NumberFormatException e) {
+				bienFormado = false;
+			} catch (Exception e) {
+				correcionClasificacion.setText("Introduce bien los Datos");
+			}
+		}				
+		
+		if (!existeCompe || fechaDeLaCompe.getYear()!=Calendar.YEAR) {
+			int dia = 0, mes = 0, ano = 0;
+			try {
+				dia = fechaDeLaCompe.getDayOfMonth();
+				mes = fechaDeLaCompe.getMonthValue();
+				ano = fechaDeLaCompe.getYear();
+			} catch (NumberFormatException e) {
+				bienFormado = false;
+			}catch (Exception e) {
+				System.out.println("Error "+e.getMessage());
+			}
+			if(bienCreado(bienFormado, ano, mes, dia, 1)) {
+				crearCompeticion(ano, mes, dia);
+			}
 		}else {
 			//Poner boton disable y alert
 			competicio.setDisable(true);
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Ya existe una competición");
 			alert.setHeaderText("Cuidaoo!!");
-			alert.setContentText("Para iniciar otra competición será mejor que termine esta.");
+			alert.setContentText("Para iniciar otra competición seleccione el año posterior a " + Calendar.YEAR);
 
 			alert.showAndWait();
 			System.exit(0);
-			
-		}		
+		}
+		
+	}
+	
+//	public boolean hayCompe() {
+//		empezar();
+//		@SuppressWarnings("unchecked")
+//		Query<Competicion> qIS = session.createQuery(obtenerCompe);
+//		ArrayList<Competicion> compes = (ArrayList<Competicion>) qIS.list();
+//		terminar();
+//		if (compes.isEmpty()) {
+//			return false;
+//		}else {
+//			return true;
+//		}		
+//	}
+	
+	public void crearCompeticion(int ano, int mes, int dia) {
+		empezar();
+		Calendar c = Calendar.getInstance();
+		c.set(ano, mes - 1, dia);
+		ArrayList<Prueba> pruebas = new ArrayList<Prueba>();
+		Competicion com = new Competicion(c, pruebas);
+		session.save(com);
+		terminar();
 	}
     
 	@FXML
@@ -199,9 +222,9 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		}else {
 			competicio.setDisable(true);
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Descanso");
-			alert.setHeaderText("Estas de vacaciones ligeras!!");
-			alert.setContentText("En agosto es mejor descansar ya que así lo acordamos.");
+			alert.setTitle("Variables Incorrectas");
+			alert.setHeaderText("Por favor declara bien las variables");
+			alert.setContentText("Comprueba que no este mal formado o que el mes no sea agosto.");
 
 			alert.showAndWait();
 			System.exit(0);
