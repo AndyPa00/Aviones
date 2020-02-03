@@ -85,7 +85,7 @@ public class Pruebas {
 		session.update(compe);
 		terminar();
 	}
-	
+
 	public void agregarManga(int idPrueba) {
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		Manga manga = new Manga(grupos, 1);

@@ -50,6 +50,10 @@
 	-fx-background-radius: 0.0;
 }
 
+.icono:hover {
+	-fx-background-color: #4980AD;
+}
+
 .cierre:hover {
 	-fx-background-color: #E32D2D;
 }

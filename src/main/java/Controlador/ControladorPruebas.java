@@ -18,7 +18,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,12 +30,9 @@ public class ControladorPruebas {
 	private BorderPane raiz;
 	private Stage escenario;
 	private static String obtenerPruebas = "FROM Prueba";
-	@FXML
-	private TableView<Prueba> vistaPruebas;
-	@FXML
-    private TableColumn<Prueba, String> pruebaCol;
-	@FXML
-    private TableColumn<Prueba, String> fechaCol;
+	@FXML private TableView<Prueba> vistaPruebas;
+	@FXML private TableColumn<Prueba, String> pruebaCol;
+	@FXML private TableColumn<Prueba, String> fechaCol;
 	
 	public ControladorPruebas() {
 	}
@@ -60,11 +56,8 @@ public class ControladorPruebas {
 
 	public void mostrarAltaBaja(Prueba pruebaSeleccionada) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(InicioApp.class.getResource("../Vista/Raiz.fxml"));
+		loader.setLocation(InicioApp.class.getResource("../Vista/RaizPeque.fxml"));
 
-        Stage escenario = new Stage();
-		escenario.setWidth(310);
-		escenario.setHeight(275);
 		
 		try {
 			raiz = (BorderPane) loader.load();
@@ -72,6 +65,8 @@ public class ControladorPruebas {
 			System.out.println("Error  " + e.getMessage());
 		}
 		Scene scene = new Scene(raiz);
+		escenario = new Stage();
+		
 //		scene.getStylesheets().add(getClass().getResource("/Estilo2.css").toExternalForm());
 		escenario.setScene(scene);
 		escenario.initStyle(StageStyle.TRANSPARENT);
@@ -95,7 +90,7 @@ public class ControladorPruebas {
 			raiz.setCenter(altaBaja);
 
 			ControladorAltaBaja controllerAB = loader.getController();
-			controllerAB.setInicioApp(app);
+			controllerAB.setInicioApp(app, pruebaSeleccionada);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
