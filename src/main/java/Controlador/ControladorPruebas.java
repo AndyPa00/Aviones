@@ -57,7 +57,6 @@ public class ControladorPruebas {
 	public void mostrarAltaBaja(Prueba pruebaSeleccionada) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InicioApp.class.getResource("../Vista/RaizPeque.fxml"));
-
 		
 		try {
 			raiz = (BorderPane) loader.load();
@@ -95,7 +94,7 @@ public class ControladorPruebas {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void setListaPruebas(ObservableList<Prueba> listaPruebas) {
 		this.listaPruebas = listaPruebas;
 	}

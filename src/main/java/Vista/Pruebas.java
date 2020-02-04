@@ -19,7 +19,7 @@ import Utilidad.Utilidades2;
 public class Pruebas {
 
 	private static String obtenerPruebas = "FROM Prueba WHERE idCompeticion = :idCompe";
-	private static String obtenerFechaCompe = "FROM Competicion WHERE idCompeticion = :idCompe";
+	private static String obtenerCompeticion = "FROM Competicion WHERE idCompeticion = :idCompe";
 	
 	private static String obtenerMangas = "FROM Manga WHERE idPrueba = :idPrueba";
 	private static String obtenerPruebaParaMangas = "FROM Prueba WHERE idPrueba = :idPrueba";
@@ -38,7 +38,7 @@ public class Pruebas {
 //		p.agregarPrueba(2020, 1, 14, 1);//idCompeticion
 		
 		//No probadas//
-		p.agregarManga(1);//idPrueba
+		p.agregarPrueba(2015, 9, 5, 2);//idPrueba
 //		p.agregarGrupo(1);//idManga
 //		p.crearPiloto(p.crearPuntuacion(), 1, 1);//idGrupo idManga
 		
@@ -59,69 +59,51 @@ public class Pruebas {
 		// Crear fecha para la prueba
 		Calendar calenPrueba = Calendar.getInstance();
 		calenPrueba.set(ano, mes - 1, dia);
-		System.out.println(calenPrueba.getTime());
 		ArrayList<Manga> mangas = new ArrayList<Manga>();
+		//Obtener la competicion que nos envian
+		@SuppressWarnings("unchecked")
+		Query<Competicion> qCompeticion = session.createQuery(obtenerCompeticion);
+		qCompeticion.setParameter("idCompe", idCompeticion);
+		Competicion competicion = ((ArrayList<Competicion>) qCompeticion.list()).get(0);
 		// Crear prueba
-		Prueba prr = new Prueba(calenPrueba, mangas, idCompeticion);
-		// Obtener las pruebas que sean de esa competicion
-		@SuppressWarnings("unchecked")
-		Query<Prueba> quPruebas = session.createQuery(obtenerPruebas);
-		quPruebas.setParameter("idCompe", idCompeticion);
-		ArrayList<Prueba> pruebas = (ArrayList<Prueba>) quPruebas.list();
-		// Agregar la prueba nueva al arraylist
-		pruebas.add(prr);
-		terminar();
-		empezar();
-		// Obtengo la competicion
-		@SuppressWarnings("unchecked")
-		Query<Competicion> quCompe = session.createQuery(obtenerFechaCompe);
-		quCompe.setParameter("idCompe", idCompeticion);
-		ArrayList<Competicion> competicion = (ArrayList<Competicion>) quCompe.list();
-		Calendar fechaCompe = competicion.get(0).getFechaInscripcion();
-		// Crear la competicion con la nueva prueba
-		Competicion compe = new Competicion(idCompeticion, fechaCompe, pruebas);
-		terminar();
-		empezar();
-		session.update(compe);
+		Prueba prr = new Prueba(calenPrueba, mangas, competicion);
+		session.save(prr);
 		terminar();
 	}
-
-	public void agregarManga(int idPrueba) {
-		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-		Manga manga = new Manga(grupos, 1);
-		empezar();
-		// Obtener las mangas que sean de esa prueba
-		@SuppressWarnings("unchecked")
-		Query<Manga> quMangas = session.createQuery(obtenerMangas);
-		quMangas.setParameter("idPrueba", idPrueba);
-		ArrayList<Manga> mangas = (ArrayList<Manga>) quMangas.list();
-		mangas.add(manga);
-		terminar();		
-		empezar();
-		// Obtengo la prueba
-		@SuppressWarnings("unchecked")
-		Query<Prueba> quPrueba = session.createQuery(obtenerPruebaParaMangas);
-		quPrueba.setParameter("idPrueba", idPrueba);
-		ArrayList<Prueba> prueba = (ArrayList<Prueba>) quPrueba.list();
-		//Cogemos fechaPrueba y idCompeticion para luego pasarlas a la prueba con mangas actualizadas
-		Calendar fechaPrueba = prueba.get(0).getFechaPrueba();
-		int idCompe = prueba.get(0).getIdCompeticion();
-		System.out.println(idCompe);
-		idCompe=1;	//Ni con esta linea funciona  :'(
-		// Crear la competicion con la nueva prueba
-		Prueba prr = new Prueba(fechaPrueba, mangas, idCompe);
-		prr.setIdPrueba(idPrueba);
-		
-		System.out.println(prr.getIdCompeticion() + " idCompe");
-		System.out.println(prr.getIdPrueba() + " idPrueba");
-		System.out.println(prr.getMangas().get(0).getIdManga() + " mangas 1");
-		System.out.println(prr.getMangas().get(0).getGrupos().toString() + " mangas 2");
-		
-		terminar();		
-		empezar();
-		session.saveOrUpdate(prr);
-		terminar();		
-	}
+	
+//	public void agregarManga(int idPrueba) {
+//		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+//		Manga manga = new Manga(grupos, 1);
+//		empezar();
+//		// Obtener las mangas que sean de esa prueba
+//		@SuppressWarnings("unchecked")
+//		Query<Manga> quMangas = session.createQuery(obtenerMangas);
+//		quMangas.setParameter("idPrueba", idPrueba);
+//		ArrayList<Manga> mangas = (ArrayList<Manga>) quMangas.list();
+//		mangas.add(manga);
+//		terminar();		
+//		empezar();
+//		// Obtengo la prueba
+//		@SuppressWarnings("unchecked")
+//		Query<Prueba> quPrueba = session.createQuery(obtenerPruebaParaMangas);
+//		quPrueba.setParameter("idPrueba", idPrueba);
+//		ArrayList<Prueba> prueba = (ArrayList<Prueba>) quPrueba.list();
+//		//Cogemos fechaPrueba y idCompeticion para luego pasarlas a la prueba con mangas actualizadas
+//		Calendar fechaPrueba = prueba.get(0).getFechaPrueba();
+//		// Crear la competicion con la nueva prueba
+//		Prueba prr = new Prueba(fechaPrueba, mangas, prueba.get(0).getCompeticion());
+//		prr.setIdPrueba(idPrueba);
+//		
+//		System.out.println(prr.getIdCompeticion() + " idCompe");
+//		System.out.println(prr.getIdPrueba() + " idPrueba");
+//		System.out.println(prr.getMangas().get(0).getIdManga() + " mangas 1");
+//		System.out.println(prr.getMangas().get(0).getGrupos().toString() + " mangas 2");
+//		
+//		terminar();		
+//		empezar();
+//		session.saveOrUpdate(prr);
+//		terminar();		
+//	}
 	
 	public void agregarGrupo(int idManga, int idCompeticion) {
 		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();

@@ -11,8 +11,8 @@
         <property name="fechaInscripcion" type="java.util.Calendar">
             <column name="fechaInscripcion" />
         </property>
-        <bag name="pruebas" table="Prueba" cascade="all">
-            <key column="idCompeticion" not-null="true"></key>
+        <bag name="pruebas" inverse="true" cascade="all">
+            <key column="idCompeticion" not-null="true"/>
             <one-to-many class="Modelo.Prueba"/>
         </bag>
     </class>

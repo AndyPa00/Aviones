@@ -10,15 +10,15 @@ public class Prueba {
 	private int idPrueba;
 	private Calendar fechaPrueba;
 	private List<Manga> mangas;
-	private int idCompeticion;
+	private Competicion competicion;
 		
 	public Prueba() {
 	}
 
-	public Prueba(Calendar fechaPrueba, List<Manga> mangas, int idCompeticion) {
+	public Prueba(Calendar fechaPrueba, List<Manga> mangas, Competicion competicion) {
 		this.fechaPrueba = fechaPrueba;
 		this.mangas = mangas;
-		this.idCompeticion = idCompeticion;
+		this.competicion = competicion;
 	}
 
 	public List<Manga> getMangas() {
@@ -44,15 +44,15 @@ public class Prueba {
 	public void setFechaPrueba(Calendar fechaPrueba) {
 		this.fechaPrueba = fechaPrueba;
 	}
-
-	public int getIdCompeticion() {
-		return idCompeticion;
-	}
-
-	public void setIdCompeticion(int idCompeticion) {
-		this.idCompeticion = idCompeticion;
-	}
 	
+	public Competicion getCompeticion() {
+		return competicion;
+	}
+
+	public void setCompeticion(Competicion competicion) {
+		this.competicion = competicion;
+	}
+
 	public StringProperty idProperty() {
         return new SimpleStringProperty(String.valueOf(idPrueba));
     }

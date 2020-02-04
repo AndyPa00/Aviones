@@ -50,7 +50,7 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 	private static String obtenerPuntos = "FROM puntuacion";
 	private static String obtenerCompe = "FROM competicion";
 	private static String obtenerPruebas = "FROM Prueba WHERE idCompeticion = :idCompe";
-	private static String obtenerFechaCompe = "FROM Competicion WHERE idCompeticion = :idCompe";
+	private static String obtenerCompeticion = "FROM Competicion WHERE idCompeticion = :idCompe";
 	
 
 	/* @param Usuario */
@@ -183,28 +183,14 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		calenPrueba.set(ano, mes - 1, dia);
 		System.out.println(calenPrueba.getTime());
 		ArrayList<Manga> mangas = new ArrayList<Manga>();
+		//Obtener la competicion que nos envian
+		@SuppressWarnings("unchecked")
+		Query<Competicion> qCompeticion = session.createQuery(obtenerCompeticion);
+		qCompeticion.setParameter("idCompeticion", idCompeticion);
+		Competicion competicion = ((ArrayList<Competicion>) qCompeticion.list()).get(0);
 		// Crear prueba
-		Prueba prr = new Prueba(calenPrueba, mangas, idCompeticion);
-		// Obtener las pruebas que sean de esa competicion
-		@SuppressWarnings("unchecked")
-		Query<Prueba> quPruebas = session.createQuery(obtenerPruebas);
-		quPruebas.setParameter("idCompe", idCompeticion);
-		ArrayList<Prueba> pruebas = (ArrayList<Prueba>) quPruebas.list();
-		// Agregar la prueba nueva al arraylist
-		pruebas.add(prr);
-		terminar();
-		empezar();
-		// Obtengo la competicion
-		@SuppressWarnings("unchecked")
-		Query<Competicion> quCompe = session.createQuery(obtenerFechaCompe);
-		quCompe.setParameter("idCompe", idCompeticion);
-		ArrayList<Competicion> competicion = (ArrayList<Competicion>) quCompe.list();
-		Calendar fechaCompe = competicion.get(0).getFechaInscripcion();
-		// Crear la competicion con la nueva prueba
-		Competicion compe = new Competicion(idCompeticion, fechaCompe, pruebas);
-		terminar();
-		empezar();
-		session.update(compe);
+		Prueba prr = new Prueba(calenPrueba, mangas, competicion);
+		session.save(prr);
 		terminar();
 	}
 	

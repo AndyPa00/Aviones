@@ -15,7 +15,7 @@
             <key column="idPrueba" not-null="true"></key>
             <one-to-many class="Modelo.Manga"/>
         </bag>
-<!-- 		<many-to-one name="competicion" column="idCompeticion" unique="true" cascade="all" not-null="true" /> -->
+		<many-to-one name="competicion" class="Modelo.Competicion" column="idCompeticion" unique="true" not-null="true" />
         
 	</class>
 </hibernate-mapping>

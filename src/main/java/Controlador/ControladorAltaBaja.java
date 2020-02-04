@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import Modelo.Credencial;
+import Modelo.Piloto;
 import Modelo.Prueba;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
@@ -40,8 +41,8 @@ public class ControladorAltaBaja {
 		q.setParameter("idPrueba", prueba.getIdPrueba());
 		ArrayList<Prueba> pruebaConCompe = (ArrayList<Prueba>) q.list();
 		terminar();
-		System.out.println(pruebaConCompe.get(0).getIdCompeticion());
-		idCompeticion.setText(String.valueOf(pruebaConCompe.get(0).getIdCompeticion()));
+		System.out.println(pruebaConCompe.get(0).getCompeticion().getIdCompeticion());
+		idCompeticion.setText(String.valueOf(pruebaConCompe.get(0).getCompeticion().getIdCompeticion()));
 		
 	}
 
@@ -51,6 +52,10 @@ public class ControladorAltaBaja {
 
 	public void setApp(InicioApp app) {
 		this.app = app;
+	}
+	
+	public void darseDeAlta() {
+		
 	}
 	
 	public void empezar() {
