@@ -12,8 +12,6 @@
             <key column="idManga" not-null="true"></key>
             <one-to-many class="Modelo.Grupo"/>
         </bag>
-<!--         <property name="idPrueba" type="int"> -->
-<!--             <column name="idPrueba" /> -->
-<!--         </property> -->
+        <many-to-one name="prueba" class="Modelo.Prueba" column="idPrueba" unique="true" not-null="true" />
 	</class>
 </hibernate-mapping>

@@ -22,45 +22,61 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class ControladorVentanaAdmin {	//Clase en prueba
+public class ControladorVentanaAdmin { // Clase en prueba
 
 	private Session session;
 	private InicioApp app;
-	@FXML private Text usuario;
-	@FXML private Text numLicencia;
-	@FXML private DatePicker fechaCompe;
-	@FXML private Text correcionClasificacion;
-	
-	@FXML private TextField diaC;
-	@FXML private TextField mesC;
-	@FXML private TextField annoC;
-	@FXML private TextField diaP;
-	@FXML private TextField mesP;
-	@FXML private TextField annoP;
-	@FXML private TextField compeID;
-	@FXML private TextField pruebaID;
-	@FXML private TextField mangaID;
-	
-	@FXML private Button competicio;
-	@FXML private Button prueb;
-	@FXML private Button mang;
-	@FXML private Button grup;
+	@FXML
+	private Text usuario;
+	@FXML
+	private Text numLicencia;
+	@FXML
+	private DatePicker fechaCompe;
+	@FXML
+	private Text correcionClasificacion;
+
+	@FXML
+	private TextField diaC;
+	@FXML
+	private TextField mesC;
+	@FXML
+	private TextField annoC;
+	@FXML
+	private TextField diaP;
+	@FXML
+	private TextField mesP;
+	@FXML
+	private TextField annoP;
+	@FXML
+	private TextField compeID;
+	@FXML
+	private TextField pruebaID;
+	@FXML
+	private TextField mangaID;
+
+	@FXML
+	private Button competicio;
+	@FXML
+	private Button prueb;
+	@FXML
+	private Button mang;
+	@FXML
+	private Button grup;
 
 	private static String obtenerUsuario = "FROM Credencial";
-	private static String obtenerPuntos = "FROM puntuacion";
-	private static String obtenerCompe = "FROM competicion";
+	private static String obtenerPuntos = "FROM Puntuacion";
+	private static String obtenerCompe = "FROM Competicion";
 	private static String obtenerPruebas = "FROM Prueba WHERE idCompeticion = :idCompe";
 	private static String obtenerCompeticion = "FROM Competicion WHERE idCompeticion = :idCompe";
-	
 
 	/* @param Usuario */
 	public void setInicioApp(InicioApp app) {
 		this.app = app;
-		this.app.getClass();//Pa rellenar
+		this.app.getClass();// Pa rellenar
 	}
 
-	public void recibeParametros(String usuario, int numLicencia){
-		//Aqui estableceremos los parametros en la vista de pilotos
+	public void recibeParametros(String usuario, int numLicencia) {
+		// Aqui estableceremos los parametros en la vista de pilotos
 		this.usuario.setText(usuario);
 		this.numLicencia.setText(String.valueOf(numLicencia));
 	}
@@ -82,12 +98,12 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		terminar();
 		return pilotosP;
 	}
-	
+
 	@FXML
 	private void empezarCompe() {
 		LocalDate fechaDeLaCompe = null;
-		boolean existeCompe = true, bienFormado = true;;
-		
+		boolean existeCompe = true, bienFormado = true;
+
 		empezar();
 		@SuppressWarnings("unchecked")
 		Query<Competicion> qCom = session.createQuery(obtenerCompe);
@@ -95,32 +111,34 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		terminar();
 		if (competisiones.isEmpty()) {
 			existeCompe = false;
-		}else {
+		} else {
+//			try {
+//				fechaDeLaCompe = fechaCompe.getValue();
+//			} catch (NumberFormatException e) {
+//				bienFormado = false;
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				correcionClasificacion.setText("Introduce bien los Datos");
+//
+//			}
+		}
+
+		if (!existeCompe || Integer.parseInt(annoC.getText()) != Calendar.YEAR) {
+			int dia = 0, mes = 0, ano = 0;
 			try {
-				fechaDeLaCompe = fechaCompe.getValue();
+				dia = Integer.parseInt(diaC.getText());
+				mes = Integer.parseInt(mesC.getText());
+				ano = Integer.parseInt(annoC.getText());
 			} catch (NumberFormatException e) {
 				bienFormado = false;
 			} catch (Exception e) {
-				correcionClasificacion.setText("Introduce bien los Datos");
+				System.out.println("Error " + e.getMessage());
 			}
-		}				
-		
-		if (!existeCompe || fechaDeLaCompe.getYear()!=Calendar.YEAR) {
-			int dia = 0, mes = 0, ano = 0;
-			try {
-				dia = fechaDeLaCompe.getDayOfMonth();
-				mes = fechaDeLaCompe.getMonthValue();
-				ano = fechaDeLaCompe.getYear();
-			} catch (NumberFormatException e) {
-				bienFormado = false;
-			}catch (Exception e) {
-				System.out.println("Error "+e.getMessage());
-			}
-			if(bienCreado(bienFormado, ano, mes, dia, 1)) {
+			if (bienCreado(bienFormado, ano, mes, dia, 1)) {
 				crearCompeticion(ano, mes, dia);
 			}
-		}else {
-			//Poner boton disable y alert
+		} else {
+			// Poner boton disable y alert
 			competicio.setDisable(true);
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Ya existe una competición");
@@ -130,9 +148,9 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 			alert.showAndWait();
 			System.exit(0);
 		}
-		
+
 	}
-	
+
 //	public boolean hayCompe() {
 //		empezar();
 //		@SuppressWarnings("unchecked")
@@ -145,7 +163,7 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 //			return true;
 //		}		
 //	}
-	
+
 	public void crearCompeticion(int ano, int mes, int dia) {
 		empezar();
 		Calendar c = Calendar.getInstance();
@@ -155,12 +173,12 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		session.save(com);
 		terminar();
 	}
-    
+
 	@FXML
 	private void agregarPrueba() {
 		int dia = 0, mes = 0, ano = 0, idCompet = 0;
 		boolean bienFormado = true;
-		//Aqui le paso si los parametros son buenos
+		// Aqui le paso si los parametros son buenos
 		try {
 			dia = Integer.parseInt(diaC.getText());
 			mes = Integer.parseInt(mesC.getText());
@@ -168,14 +186,14 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 			idCompet = Integer.parseInt(compeID.getText());
 		} catch (NumberFormatException e) {
 			bienFormado = false;
-		}catch (Exception e) {
-			System.out.println("Error "+e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Error " + e.getMessage());
 		}
-		if(bienCreado(bienFormado, ano, mes, dia, idCompet)) {
+		if (bienCreado(bienFormado, ano, mes, dia, idCompet)) {
 			crearPrueba(ano, mes, dia, idCompet);
 		}
 	}
-	
+
 	public void crearPrueba(int ano, int mes, int dia, int idCompeticion) {
 		empezar();
 		// Crear fecha para la prueba
@@ -183,7 +201,7 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		calenPrueba.set(ano, mes - 1, dia);
 		System.out.println(calenPrueba.getTime());
 		ArrayList<Manga> mangas = new ArrayList<Manga>();
-		//Obtener la competicion que nos envian
+		// Obtener la competicion que nos envian
 		@SuppressWarnings("unchecked")
 		Query<Competicion> qCompeticion = session.createQuery(obtenerCompeticion);
 		qCompeticion.setParameter("idCompeticion", idCompeticion);
@@ -193,19 +211,19 @@ public class ControladorVentanaAdmin {	//Clase en prueba
 		session.save(prr);
 		terminar();
 	}
-	
+
 	public boolean bienCreado(boolean bienFormado, int ano, int mes, int dia, int idCompet) {
-		if (bienFormado && mes!=8 && idCompet>0 && idCompet<9999 && ano>2000 && ano<3000) {
-			if (mes==1 || mes==3 || mes==5 || mes==7 || mes==10 || mes==12) {
-				if (dia<=31 && dia>=1) {
+		if (bienFormado && mes != 8 && idCompet > 0 && idCompet < 9999 && ano > 2000 && ano < 3000) {
+			if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 10 || mes == 12) {
+				if (dia <= 31 && dia >= 1) {
 					return true;
 				}
-			}else if (mes==2 || mes==4 || mes==6 || mes==9 || mes==11) {
-				if (dia<=30 && dia>=1) {
+			} else if (mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+				if (dia <= 30 && dia >= 1) {
 					return true;
 				}
-			}			
-		}else {
+			}
+		} else {
 			competicio.setDisable(true);
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Variables Incorrectas");

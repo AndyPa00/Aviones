@@ -34,11 +34,11 @@ public class Pruebas {
 		Pruebas p = new Pruebas();
 
 		//Funcionan//
-//		p.crearCompeticion(2020, 10, 5);
+		p.crearCompeticion(2020, 10, 5);
 //		p.agregarPrueba(2020, 1, 14, 1);//idCompeticion
 		
 		//No probadas//
-		p.agregarPrueba(2015, 9, 5, 2);//idPrueba
+//		p.agregarPrueba(2000, 8, 30, 1);//idPrueba
 //		p.agregarGrupo(1);//idManga
 //		p.crearPiloto(p.crearPuntuacion(), 1, 1);//idGrupo idManga
 		
@@ -54,7 +54,7 @@ public class Pruebas {
 		terminar();
 	}
 
-	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {// Que no se nos olvide qeu en agiosto no se puede
+	public void agregarPrueba(int ano, int mes, int dia, int idCompeticion) {// Voites que no se nos olvide qeu en agiosto no se puede
 		empezar();
 		// Crear fecha para la prueba
 		Calendar calenPrueba = Calendar.getInstance();
@@ -105,23 +105,23 @@ public class Pruebas {
 //		terminar();		
 //	}
 	
-	public void agregarGrupo(int idManga, int idCompeticion) {
-		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
-		Grupo grup = new Grupo(0, pilotos, idManga);
-		empezar();
-		// Obtener los grupos que sean de esa manga
-		@SuppressWarnings("unchecked")
-		Query<Grupo> quGrupos = session.createQuery(obtenerGrupos);
-		quGrupos.setParameter("idManga", idManga);
-		ArrayList<Grupo> grupos = (ArrayList<Grupo>) quGrupos.list();
-		grupos.add(grup);
-		// Crear la competicion con la nueva prueba
-		Manga mang = new Manga( grupos, idCompeticion);
-		terminar();
-		empezar();
-		session.update(mang);
-		terminar();
-	}
+//	public void agregarGrupo(int idManga, int idCompeticion) {
+//		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
+//		Grupo grup = new Grupo(0, pilotos, idManga);
+//		empezar();
+//		// Obtener los grupos que sean de esa manga
+//		@SuppressWarnings("unchecked")
+//		Query<Grupo> quGrupos = session.createQuery(obtenerGrupos);
+//		quGrupos.setParameter("idManga", idManga);
+//		ArrayList<Grupo> grupos = (ArrayList<Grupo>) quGrupos.list();
+//		grupos.add(grup);
+//		// Crear la competicion con la nueva prueba
+//		Manga mang = new Manga( grupos, idCompeticion);
+//		terminar();
+//		empezar();
+//		session.update(mang);
+//		terminar();
+//	}
 	
 	//En este metodo a diferencia de los anteriores, que cogíamos los valores de una query se lo ponemos por parametro (asegurarse poner bien)
 	public void crearPiloto(Puntuacion puntuacion, int idGrupo, int idManga) {

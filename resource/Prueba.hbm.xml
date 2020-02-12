@@ -11,11 +11,10 @@
 		<property name="fechaPrueba" type="java.util.Calendar">
 			<column name="fechaPrueba" />
 		</property>
-        <bag name="mangas" table="Manga" cascade="all">
-            <key column="idPrueba" not-null="true"></key>
+        <bag name="mangas" inverse="true" cascade="all">
+            <key column="idPrueba" not-null="true"/>
             <one-to-many class="Modelo.Manga"/>
         </bag>
 		<many-to-one name="competicion" class="Modelo.Competicion" column="idCompeticion" unique="true" not-null="true" />
-        
 	</class>
 </hibernate-mapping>

@@ -5,14 +5,22 @@ import java.util.List;
 public class Manga {
 	private int idManga;
 	List<Grupo> grupos;
-	private int idCompeticion;
+	private Prueba prueba;
 	
 	public Manga() {
 	}
 
-	public Manga(List<Grupo> grupos, int idCompeticion) {
+	public Manga(List<Grupo> grupos, Prueba prueba) {
 		this.grupos = grupos;
-		this.idCompeticion = idCompeticion;
+		this.prueba = prueba;
+	}
+
+	public Prueba getPrueba() {
+		return prueba;
+	}
+
+	public void setPrueba(Prueba prueba) {
+		this.prueba = prueba;
 	}
 
 	public int getIdManga() {
@@ -29,14 +37,6 @@ public class Manga {
 
 	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
-	}
-
-	public int getIdCompeticion() {
-		return idCompeticion;
-	}
-
-	public void setIdCompeticion(int idCompeticion) {
-		this.idCompeticion = idCompeticion;
 	}
 	
 }
