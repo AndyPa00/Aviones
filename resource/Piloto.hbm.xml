@@ -9,6 +9,6 @@
 			<generator class="identity" />
 		</id>
 		<one-to-one name="Puntuacion" constrained="true" cascade="all" />
-<!-- 		Puede que aqui falte algo -->
+		<many-to-one name="grupo" class="Modelo.Grupo" column="idGrupo" unique="true" not-null="true" />
 	</class>
 </hibernate-mapping>

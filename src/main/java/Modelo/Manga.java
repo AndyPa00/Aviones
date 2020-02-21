@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Manga {
 	private int idManga;
-	List<Grupo> grupos;
+	private List<Grupo> grupos;
 	private Prueba prueba;
 	
 	public Manga() {

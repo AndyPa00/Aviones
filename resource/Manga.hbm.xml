@@ -8,8 +8,8 @@
 			<column name="idManga" />
 			<generator class="identity" />
 		</id>
-		<bag name="grupos" table="Grupo" cascade="all">
-            <key column="idManga" not-null="true"></key>
+		<bag name="grupos" inverse="true" cascade="all">
+            <key column="idManga" not-null="true"/>
             <one-to-many class="Modelo.Grupo"/>
         </bag>
         <many-to-one name="prueba" class="Modelo.Prueba" column="idPrueba" unique="true" not-null="true" />

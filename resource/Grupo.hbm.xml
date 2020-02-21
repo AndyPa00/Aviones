@@ -8,12 +8,14 @@
 			<column name="IDGRUPO" />
 			<generator class="assigned" />
 		</id>
-		<bag name="pilotos" table="Piloto" cascade="all">
-            <key column="idGrupo" not-null="true"></key>
+		<bag name="pilotos" inverse="true" cascade="all">
+            <key column="idGrupo" not-null="true"/>
             <one-to-many class="Modelo.Piloto"/>
         </bag>
-<!--         <property name="idManga" type="int" insert="false" update="false"> -->
-<!--             <column name="idManga" /> -->
-<!--         </property> -->
+<!-- 		<bag name="pilotos" table="Piloto" cascade="all"> -->
+<!--             <key column="idGrupo" not-null="true"></key> -->
+<!--             <one-to-many class="Modelo.Piloto"/> -->
+<!--         </bag> -->
+        <many-to-one name="manga" class="Modelo.Manga" column="idManga" unique="true" not-null="true" />
 	</class>
 </hibernate-mapping>

@@ -20,14 +20,20 @@ public class ControladorAltaBaja {
 	private InicioApp app;
 	private String date;
 	private Session session;
-	@FXML private Label idPrueba;
-	@FXML private Label idCompeticion;
-	@FXML private Label numConcursantes;
-	@FXML private Label fecha;
+	@FXML
+	private Label idPrueba;
+	@FXML
+	private Label idCompeticion;
+	@FXML
+	private Label numConcursantes;
+	@FXML
+	private Label fecha;
 	private static String obtenerPrueba = "FROM Prueba WHERE idPrueba = :idPrueba";
+	private static String obtenerPilotos = "FROM Piloto, Grupo, Manga, Prueba WHERE Piloto.idGrupo"
+			+ " = Grupo.idGrupo AND Grupo.idManga = Manga.idManga AND Manga.idPrueba = :idPrueba";
 	private SimpleDateFormat sdf;
+	// Competicion>Prueba>Manga>Grupos>Pilotos
 	
-	/* @param Usuario */
 	public void setInicioApp(InicioApp app, Prueba prueba) {
 		sdf = new SimpleDateFormat("dd/M/yyyy");
 		date = sdf.format(prueba.getFechaPrueba().getTime());
@@ -41,9 +47,14 @@ public class ControladorAltaBaja {
 		q.setParameter("idPrueba", prueba.getIdPrueba());
 		ArrayList<Prueba> pruebaConCompe = (ArrayList<Prueba>) q.list();
 		terminar();
-		System.out.println(pruebaConCompe.get(0).getCompeticion().getIdCompeticion());
 		idCompeticion.setText(String.valueOf(pruebaConCompe.get(0).getCompeticion().getIdCompeticion()));
-		
+		empezar();
+		@SuppressWarnings("unchecked")
+		Query<Piloto> qPil = session.createQuery(obtenerPilotos);
+		q.setParameter("idPrueba", prueba.getIdPrueba());
+		ArrayList<Piloto> pilotos = (ArrayList<Piloto>) qPil.list();
+		terminar();
+		numConcursantes.setText(String.valueOf(pilotos.size()));
 	}
 
 	public InicioApp getApp() {
@@ -53,11 +64,11 @@ public class ControladorAltaBaja {
 	public void setApp(InicioApp app) {
 		this.app = app;
 	}
-	
+
 	public void darseDeAlta() {
 		
 	}
-	
+
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();
 		session.beginTransaction();

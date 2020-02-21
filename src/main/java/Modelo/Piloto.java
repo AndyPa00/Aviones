@@ -3,14 +3,13 @@ package Modelo;
 public class Piloto {
 	private int idPiloto;
 	private Puntuacion puntuacion;
-	private int idGrupo;
+	private Grupo grupo;
 	
-	public Piloto(int idPiloto, Puntuacion puntuacion, int idGrupo) {
-		this.idPiloto = idPiloto;
+	public Piloto(Puntuacion puntuacion, Grupo grupo) {
 		this.puntuacion = puntuacion;
-		this.idGrupo = idGrupo;
+		this.grupo = grupo;
 	}
-	
+
 	public Piloto(Puntuacion puntuacion) {
 		this.puntuacion = puntuacion;
 	}
@@ -31,12 +30,11 @@ public class Piloto {
 		this.puntuacion = puntuacion;
 	}
 
-	public int getIdGrupo() {
-		return idGrupo;
+	public Grupo getGrupo() {
+		return grupo;
 	}
 
-	public void setIdGrupo(int idGrupo) {
-		this.idGrupo = idGrupo;
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
 	}
-	
 }

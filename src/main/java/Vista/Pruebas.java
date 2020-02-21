@@ -124,23 +124,23 @@ public class Pruebas {
 //	}
 	
 	//En este metodo a diferencia de los anteriores, que cogíamos los valores de una query se lo ponemos por parametro (asegurarse poner bien)
-	public void crearPiloto(Puntuacion puntuacion, int idGrupo, int idManga) {
-		Piloto pilots = new Piloto(0, puntuacion, idGrupo);
-		System.out.println("Ostia pilots.  Uohh que son de bones, men canteeen ");
-		empezar();
-		// Obtener los pilotos que sean de ese grupo
-		@SuppressWarnings("unchecked")
-		Query<Piloto> quPilotos = session.createQuery(obtenerPilotos);
-		quPilotos.setParameter("idGrupo", idGrupo);
-		ArrayList<Piloto> pilotos = (ArrayList<Piloto>) quPilotos.list();
-		pilotos.add(pilots);
-		terminar();
-		// Crear la competicion con la nueva prueba
-		empezar();
-		Grupo grup = new Grupo(idGrupo, pilotos, idManga);
-		session.update(grup);
-		terminar();
-	}
+//	public void crearPiloto(Puntuacion puntuacion, int idGrupo, int idManga) {
+//		Piloto pilots = new Piloto(0, puntuacion, idGrupo);
+//		System.out.println("Ostia pilots.  Uohh que son de bones, men canteeen ");
+//		empezar();
+//		// Obtener los pilotos que sean de ese grupo
+//		@SuppressWarnings("unchecked")
+//		Query<Piloto> quPilotos = session.createQuery(obtenerPilotos);
+//		quPilotos.setParameter("idGrupo", idGrupo);
+//		ArrayList<Piloto> pilotos = (ArrayList<Piloto>) quPilotos.list();
+//		pilotos.add(pilots);
+//		terminar();
+//		// Crear la competicion con la nueva prueba
+//		empezar();
+//		Grupo grup = new Grupo(idGrupo, pilotos, idManga);
+//		session.update(grup);
+//		terminar();
+//	}
 
 	public Puntuacion crearPuntuacion() {	//Perfeccionar
 		Scanner teclado = new Scanner(System.in);
