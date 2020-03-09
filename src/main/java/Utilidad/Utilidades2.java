@@ -13,8 +13,7 @@ public class Utilidades2 {
 
 		try {
 
-			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-					.configure("hibernate.cfg.xml").build();
+			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 			Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();
 			return metadata.getSessionFactoryBuilder().build();
 

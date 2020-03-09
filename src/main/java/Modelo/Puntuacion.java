@@ -7,8 +7,7 @@ public class Puntuacion {
 	private int altura;
 	private int total;
 	
-	public Puntuacion(int idPuntuacion,int tiempoVuelo, int distancia, int altura, int total) {
-		this.idPuntuacion = idPuntuacion;
+	public Puntuacion(int tiempoVuelo, int distancia, int altura, int total) {
 		this.tiempoVuelo = tiempoVuelo;
 		this.distancia = distancia;
 		this.altura = altura;

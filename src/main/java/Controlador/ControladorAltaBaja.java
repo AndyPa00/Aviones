@@ -2,16 +2,17 @@ package Controlador;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import Modelo.Credencial;
+import Modelo.Competicion;
 import Modelo.Grupo;
 import Modelo.Manga;
 import Modelo.Piloto;
 import Modelo.Prueba;
+import Modelo.Puntuacion;
 import Utilidad.Utilidades2;
 import Vista.InicioApp;
 import javafx.fxml.FXML;
@@ -34,8 +35,9 @@ public class ControladorAltaBaja {
 	@FXML
 	private Label fecha;
 	private static String obtenerPrueba = "FROM Prueba WHERE idPrueba = :idPrueba";
-	private static String obtenerPilotos = "FROM Piloto, Grupo, Manga, Prueba WHERE Piloto.idGrupo"
-			+ " = Grupo.idGrupo AND Grupo.idManga = Manga.idManga AND Manga.idPrueba = :idPrueba";
+	private static String obtenerPilotos = "FROM Piloto p, Grupo g, Manga m, Prueba WHERE p.Grupo.idGrupo=g.idGrupo AND g.idManga=m.idManga AND m.idPrueba = :idPrueba";
+
+	private static String obtenerCompeticion = "FROM Competicion WHERE idCompeticion = :idCompe";
 	
 //	private static String obtenerMangas = "FROM Prueba WHERE idPrueba = :idPrueba";
 //	private static String obtenerGrupos = "FROM Manga WHERE idManga = :idManga";
@@ -51,51 +53,60 @@ public class ControladorAltaBaja {
 		fecha.setText(date);
 		System.out.println(date);
 		this.setApp(app);
+		
 		empezar();
 		@SuppressWarnings("unchecked")
 		Query<Prueba> q = session.createQuery(obtenerPrueba);
 		q.setParameter("idPrueba", prueba.getIdPrueba());
 		ArrayList<Prueba> pruebaConCompe = (ArrayList<Prueba>) q.list();
-		terminar();
 		idCompeticion.setText(String.valueOf(pruebaConCompe.get(0).getCompeticion().getIdCompeticion()));
+		terminar();
 
 		///Aqui deja de funcionar///
 		
 //		empezar();
-//		@SuppressWarnings("unchecked")
-//		Query<Piloto> qPil = session.createQuery(obtenerPilotos);
-//		q.setParameter("idPrueba", prueba.getIdPrueba());
-//		ArrayList<Piloto> pilotos = (ArrayList<Piloto>) qPil.list();
+//		System.out.println(session);
+//		Query<Object> qPil = session.createQuery(obtenerPilotos, Object.class);
+//		qPil.setParameter("idPrueba", prueba.getIdPrueba());
+//		ArrayList<Object> pilotos = (ArrayList<Object>) qPil.list();
 //		terminar();
 //		numConcursantes.setText(String.valueOf(pilotos.size()));
 
 		numConcursantes.setText("9");
 		
-//		empezar();
+//		Session session2 = Utilidades2.getSessionFactory().openSession();
+//		session2.beginTransaction();
 //		@SuppressWarnings("unchecked")
-//		Query<Manga> qMangas = session.createQuery(obtenerMangas);
+//		Query<Manga> qMangas = session2.createQuery(obtenerMangas);
 //		q.setParameter("idPrueba", prueba.getIdPrueba());
 //		ArrayList<Manga> mangas = (ArrayList<Manga>) qMangas.list();
-//		terminar();
+////		terminar();
+//		session2.getTransaction().commit();
+//		session2.close();
+//		
 //		
 //		ArrayList<Grupo> grupos = new ArrayList<>();
 //		for (int i = 0; i < mangas.size(); i++) {
-//			empezar();
+//			Session session3 = Utilidades2.getSessionFactory().openSession();
+//			session3.beginTransaction();
 //			@SuppressWarnings("unchecked")
-//			Query<Grupo> qGrupo = session.createQuery(obtenerGrupos);			
+//			Query<Grupo> qGrupo = session3.createQuery(obtenerGrupos);			
 //			q.setParameter("idManga", mangas.get(i).getIdManga());
 //			grupos.addAll((ArrayList<Grupo>) qGrupo.list());
-//			terminar();	
+//			session3.getTransaction().commit();
+//			session3.close();
 //		}
 //		
 //		ArrayList<Piloto> pilotos = new ArrayList<>();
 //		for (int i = 0; i < grupos.size(); i++) {
-//			empezar();
+//			Session session4 = Utilidades2.getSessionFactory().openSession();
+//			session4.beginTransaction();
 //			@SuppressWarnings("unchecked")
-//			Query<Piloto> qPiloto = session.createQuery(obtenerGrupos);			
+//			Query<Piloto> qPiloto = session4.createQuery(obtenerGrupos);			
 //			q.setParameter("idGrupo", grupos.get(i).getIdGrupo());
 //			pilotos.addAll((ArrayList<Piloto>) qPiloto.list());
-//			terminar();	
+//			session4.getTransaction().commit();
+//			session4.close();	
 //		}
 		
 	}
@@ -118,6 +129,22 @@ public class ControladorAltaBaja {
 			altaBaja.setText("Apuntarse");
 		}
 	}
+	
+	@FXML
+	public void darseDeAlta2() {	//Deberiamos añadir el piloto con los valores cogidos anteriormente, pero el paso anterior no funciona
+		if(altaBaja.getText().equals("Apuntarse")) {
+			empezar();
+			Piloto piloto = new Piloto(new Puntuacion(0, 0, 0, 0), new Grupo(new ArrayList<>(), new Manga()));
+			session.save(piloto);
+			terminar();
+			numConcursantes.setText("10");
+			altaBaja.setText("Desapuntarse");			
+		} else {
+			numConcursantes.setText("9");
+			altaBaja.setText("Apuntarse");
+		}
+	}
+	
 
 	public void empezar() {
 		session = Utilidades2.getSessionFactory().openSession();
