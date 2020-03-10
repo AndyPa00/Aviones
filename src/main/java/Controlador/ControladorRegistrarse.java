@@ -46,7 +46,6 @@ public class ControladorRegistrarse {
 					Integer.parseInt(numLicencia.getText()), nombre.getText(),
 					apellido1.getText(), apellido2.getText());
 			session.save(cred);
-			System.out.println(cred.toString());
 			terminar();
 			System.out.println("Usuario creado");
 			app.mostrarInicio();

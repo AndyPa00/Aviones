@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -9,7 +10,10 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="600.0" styleClass="inicio" stylesheets="@../../../resource/Estilo2.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorInicio">
    <children>
-      <Label layoutX="274.0" layoutY="65.0" text="LIGA F5J" />
+      <Label layoutX="157.0" layoutY="22.0" text="LIGA F5J" textFill="WHITE">
+         <font>
+            <Font name="Acknowledge TT BRK" size="68.0" />
+         </font></Label>
       <Button layoutX="133.0" layoutY="398.0" mnemonicParsing="false" onAction="#iniciarSesion" styleClass="botonRedondo" text="Iniciar Sesión" />
       <Button layoutX="375.0" layoutY="398.0" mnemonicParsing="false" onAction="#registrarse" styleClass="botonRedondo" text="Registrarse" />
    </children>
